@@ -2,7 +2,7 @@
 
 # CodexSkills
 
-A collection of Codex/agent skills.
+A collection of Codex/agent skills. Check the /skills/ folder for a library of skills (like the OpenAI Developer Documenation Skill)
 
 ## Install with codexskills (recommended)
 
