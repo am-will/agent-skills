@@ -4,6 +4,11 @@
 
 A collection of Codex/agent skills. Check the /skills/ folder for a library of skills (like the OpenAI Developer Documenation Skill)
 
+## Available skills
+
+- `context7`: Fetch up-to-date library documentation via Context7 API.
+- `openai-docs-skill`: Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
+
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
