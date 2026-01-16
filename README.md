@@ -34,6 +34,5 @@ openskills install am-will/agent-skills --universal
 
 OpenSkills is created and maintained by Numman Ali. See the OpenSkills repo for full documentation and updates:
 
-```text
 https://github.com/numman-ali/openskills
-```
+
