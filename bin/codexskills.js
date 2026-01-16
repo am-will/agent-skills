@@ -131,6 +131,20 @@ async function copyDir(src, dest) {
   await fsp.cp(src, dest, { recursive: true, force: true });
 }
 
+function printBanner() {
+  if (!process.stdout.isTTY) return;
+  const lines = [
+    '\u001b[38;5;203m█████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████\u001b[0m',
+    '\u001b[38;5;209m█     █   █ █   █ █      █ █  █     █  █    █   █     █     █\u001b[0m',
+    '\u001b[38;5;209m█     █   █ █   █ █████   █   █████ █ █     █   █     █     █████\u001b[0m',
+    '\u001b[38;5;208m█     █   █ █   █ █      █ █      █ ██      █   █     █         █\u001b[0m',
+    '\u001b[38;5;167m█     █   █ █   █ █     █   █     █ █ █     █   █     █         █\u001b[0m',
+    '\u001b[38;5;167m█████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████\u001b[0m',
+    '',
+  ];
+  process.stdout.write(lines.join('\n') + '\n');
+}
+
 function renderSelection(title, skills, index, selected) {
   const lines = [];
   lines.push(title);
@@ -208,6 +222,7 @@ async function promptSelectSkills(skillDirs) {
 async function installSkills({ scope, spec, projectPath, installAll }) {
   ensureCmd('git');
   ensureCmd('trash');
+  printBanner();
 
   const { repoUrl, subPath } = splitRepoSpec(spec);
   const tmpBase = await fsp.mkdtemp(path.join(os.tmpdir(), 'codexskills-'));
