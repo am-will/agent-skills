@@ -13,7 +13,7 @@ npm i -g openskills
 2) Install skills from this repo:
 
 ```bash
-openskills install numman-ali/agent-skills
+openskills install am-will/agent-skills
 ```
 
 3) Sync skills into your AGENTS.md:
@@ -27,5 +27,5 @@ openskills sync
 If you use multiple agents and want a shared `.agent/skills/` location:
 
 ```bash
-openskills install numman-ali/agent-skills --universal
+openskills install am-will/agent-skills --universal
 ```
