@@ -8,6 +8,9 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 - `context7`: Fetch up-to-date library documentation via Context7 API.
 - `openai-docs-skill`: Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
+- `frontend-design`: Distinctive frontend design system guidance (imported from Anthropic).
+- `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
+- `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
 
 ## Install with codexskills (recommended)
 
