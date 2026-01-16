@@ -10,6 +10,12 @@ A collection of Codex/agent skills.
 npm i -g openskills
 ```
 
+OpenSkills is created and maintained by Numman Ali. See the OpenSkills repo for full documentation and updates:
+
+```text
+https://github.com/numman-ali/openskills
+```
+
 2) Install skills from this repo:
 
 ```bash
