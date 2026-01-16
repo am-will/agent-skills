@@ -13,7 +13,7 @@ npm i -g openskills
 2) Install skills from this repo:
 
 ```bash
-openskills install am-will/agent-skills
+openskills install am-will/codex-skills
 ```
 
 3) Sync skills into your AGENTS.md:
@@ -29,7 +29,7 @@ Note: `openskills sync` expects an existing `AGENTS.md` file to update.
 If you use multiple agents and want a shared `.agent/skills/` location:
 
 ```bash
-openskills install am-will/agent-skills --universal
+openskills install am-will/codex-skills --universal
 ```
 
 NOTE: You must run that command from your base HOME folder ~/, otherwise, it will install /.skills to your current working directory.
