@@ -22,6 +22,8 @@ openskills install am-will/agent-skills
 openskills sync
 ```
 
+Note: `openskills sync` expects an existing `AGENTS.md` file to update.
+
 ### Optional: universal install
 
 If you use multiple agents and want a shared `.agent/skills/` location:
