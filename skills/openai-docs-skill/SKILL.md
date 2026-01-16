@@ -19,8 +19,8 @@ Use the OpenAI developer documentation MCP server from the shell to search and f
 ## Quick start
 
 ```bash
-/home/willr/Applications/skills/skills/openai-docs-skill/scripts/openai-docs-mcp.sh search "Responses API" 5
-/home/willr/Applications/skills/skills/openai-docs-skill/scripts/openai-docs-mcp.sh fetch https://platform.openai.com/docs/guides/migrate-to-responses
+scripts/openai-docs-mcp.sh search "Responses API" 5
+scripts/openai-docs-mcp.sh fetch https://platform.openai.com/docs/guides/migrate-to-responses
 ```
 
 ## Workflow
