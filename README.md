@@ -32,6 +32,8 @@ If you use multiple agents and want a shared `.agent/skills/` location:
 openskills install am-will/agent-skills --universal
 ```
 
+NOTE: You must run that command from your base HOME folder ~/, otherwise, it will install /.skills to your current working directory.
+
 OpenSkills is created and maintained by Numman Ali. See the OpenSkills repo for full documentation and updates:
 
 https://github.com/numman-ali/openskills
