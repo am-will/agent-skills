@@ -1,0 +1,12 @@
+{
+  "name": "codexskills",
+  "version": "0.1.0",
+  "description": "Install Codex skills from Git repositories into user or project scope.",
+  "license": "MIT",
+  "bin": {
+    "codexskills": "bin/codexskills.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
