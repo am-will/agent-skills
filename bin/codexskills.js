@@ -132,21 +132,22 @@ async function copyDir(src, dest) {
 }
 
 function bannerLines() {
+  const pad = '  ';
   const main = [
-    '█████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████',
-    '█     █   █ █   █ █      █ █  █     █  █    █   █     █     █',
-    '█     █   █ █   █ █████   █   █████ █ █     █   █     █     █████',
-    '█     █   █ █   █ █      █ █      █ ██      █   █     █         █',
-    '█     █   █ █   █ █     █   █     █ █ █     █   █     █         █',
-    '█████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████',
+    `${pad}█████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████`,
+    `${pad}█     █   █ █   █ █      █ █  █     █  █    █   █     █     █`,
+    `${pad}█     █   █ █   █ █████   █   █████ █ █     █   █     █     █████`,
+    `${pad}█     █   █ █   █ █      █ █      █ ██      █   █     █         █`,
+    `${pad}█     █   █ █   █ █     █   █     █ █ █     █   █     █         █`,
+    `${pad}█████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████`,
   ];
   const shadow = [
-    '  █████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████',
-    '  █     █   █ █   █ █      █ █  █     █  █    █   █     █     █',
-    '  █     █   █ █   █ █████   █   █████ █ █     █   █     █     █████',
-    '  █     █   █ █   █ █      █ █      █ ██      █   █     █         █',
-    '  █     █   █ █   █ █     █   █     █ █ █     █   █     █         █',
-    '  █████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████',
+    `${pad}  █████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████`,
+    `${pad}  █     █   █ █   █ █      █ █  █     █  █    █   █     █     █`,
+    `${pad}  █     █   █ █   █ █████   █   █████ █ █     █   █     █     █████`,
+    `${pad}  █     █   █ █   █ █      █ █      █ ██      █   █     █         █`,
+    `${pad}  █     █   █ █   █ █     █   █     █ █ █     █   █     █         █`,
+    `${pad}  █████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████`,
   ];
   const cTop = '\u001b[38;5;209m';
   const cMid = '\u001b[38;5;203m';
@@ -174,13 +175,14 @@ function printBanner() {
 function renderSelection(title, skills, index, selected) {
   const lines = [];
   lines.push(...bannerLines());
-  lines.push(title);
-  lines.push('Use \u2191/\u2193 to move, Space to toggle, A to toggle all, Enter to confirm.');
+  const pad = '  ';
+  lines.push(pad + title);
+  lines.push(pad + 'Use \u2191/\u2193 to move, Space to toggle, A to toggle all, Enter to confirm.');
   lines.push('');
   for (let i = 0; i < skills.length; i++) {
     const cursor = i === index ? '>' : ' ';
     const mark = selected[i] ? '[x]' : '[ ]';
-    lines.push(`${cursor} ${mark} ${skills[i]}`);
+    lines.push(`${pad}${cursor} ${mark} ${skills[i]}`);
   }
   process.stdout.write('\x1b[2J\x1b[H' + lines.join('\n'));
 }
