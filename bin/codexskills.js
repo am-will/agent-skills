@@ -131,22 +131,49 @@ async function copyDir(src, dest) {
   await fsp.cp(src, dest, { recursive: true, force: true });
 }
 
-function printBanner() {
-  if (!process.stdout.isTTY) return;
-  const lines = [
-    '\u001b[38;5;203m█████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████\u001b[0m',
-    '\u001b[38;5;209m█     █   █ █   █ █      █ █  █     █  █    █   █     █     █\u001b[0m',
-    '\u001b[38;5;209m█     █   █ █   █ █████   █   █████ █ █     █   █     █     █████\u001b[0m',
-    '\u001b[38;5;208m█     █   █ █   █ █      █ █      █ ██      █   █     █         █\u001b[0m',
-    '\u001b[38;5;167m█     █   █ █   █ █     █   █     █ █ █     █   █     █         █\u001b[0m',
-    '\u001b[38;5;167m█████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████\u001b[0m',
+function bannerLines() {
+  const main = [
+    '█████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████',
+    '█     █   █ █   █ █      █ █  █     █  █    █   █     █     █',
+    '█     █   █ █   █ █████   █   █████ █ █     █   █     █     █████',
+    '█     █   █ █   █ █      █ █      █ ██      █   █     █         █',
+    '█     █   █ █   █ █     █   █     █ █ █     █   █     █         █',
+    '█████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████',
+  ];
+  const shadow = [
+    '  █████ █████ █████ █████ █   █ █████ █   █ █████ █     █     █████',
+    '  █     █   █ █   █ █      █ █  █     █  █    █   █     █     █',
+    '  █     █   █ █   █ █████   █   █████ █ █     █   █     █     █████',
+    '  █     █   █ █   █ █      █ █      █ ██      █   █     █         █',
+    '  █     █   █ █   █ █     █   █     █ █ █     █   █     █         █',
+    '  █████ █████ █████ █████ █   █ █████ █  █  █████ █████ █████ █████',
+  ];
+  const cTop = '\u001b[38;5;209m';
+  const cMid = '\u001b[38;5;203m';
+  const cLow = '\u001b[38;5;208m';
+  const cShadow = '\u001b[38;5;237m';
+  const reset = '\u001b[0m';
+  return [
+    `${cShadow}${shadow[0]}${reset}`,
+    `${cShadow}${shadow[1]}${reset}`,
+    `${cTop}${main[0]}${reset}`,
+    `${cTop}${main[1]}${reset}`,
+    `${cMid}${main[2]}${reset}`,
+    `${cMid}${main[3]}${reset}`,
+    `${cLow}${main[4]}${reset}`,
+    `${cLow}${main[5]}${reset}`,
     '',
   ];
-  process.stdout.write(lines.join('\n') + '\n');
+}
+
+function printBanner() {
+  if (!process.stdout.isTTY) return;
+  process.stdout.write(bannerLines().join('\n') + '\n');
 }
 
 function renderSelection(title, skills, index, selected) {
   const lines = [];
+  lines.push(...bannerLines());
   lines.push(title);
   lines.push('Use \u2191/\u2193 to move, Space to toggle, A to toggle all, Enter to confirm.');
   lines.push('');
