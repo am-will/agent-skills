@@ -11,6 +11,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `frontend-design`: Distinctive frontend design system guidance (imported from Anthropic).
 - `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
 - `playwright-skill`: Browser automation/testing helper that auto-detects dev servers, runs Playwright scripts, captures UX data, and stores scripts in `/tmp`.
+- `gemini-computer-use`: Gemini 2.5 Computer Use browser-control agent skill (Playwright + safety confirmation loop).
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
 
 ## Install with codexskills (recommended)
