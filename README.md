@@ -10,6 +10,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `openai-docs-skill`: Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
 - `frontend-design`: Distinctive frontend design system guidance (imported from Anthropic).
 - `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
+- `playwright-skill`: Browser automation/testing helper that auto-detects dev servers, runs Playwright scripts, captures UX data, and stores scripts in `/tmp`.
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
 
 ## Install with codexskills (recommended)
