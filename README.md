@@ -12,7 +12,10 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
 - `playwright-skill`: Browser automation/testing helper that auto-detects dev servers, runs Playwright scripts, captures UX data, and stores scripts in `/tmp`.
 - `gemini-computer-use`: Gemini 2.5 Computer Use browser-control agent skill (Playwright + safety confirmation loop).
+- `agent-browser`: Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
+
+**Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow.
 
 ## Install with codexskills (recommended)
 
