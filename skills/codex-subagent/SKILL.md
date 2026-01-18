@@ -1,5 +1,5 @@
 ---
-name: subagent
+name: codex-subagent
 description: >
   Spawn autonomous Codex subagents via background shell to offload context-heavy work.
   USE THIS SKILL automatically when (1) Deep research requiring 5+ web searches or source analysis,
