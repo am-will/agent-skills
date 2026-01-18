@@ -28,7 +28,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 Install a single skill into your user scope (installs globally for all projects):
 
 ```bash
-npx @am-will/codexskills --user am-will/codex-skills/skills/openai-docs-skill
+npx @am-will/codexskills --user am-will/codex-skills/skills/codex-subagent
 ```
 
 Install all skills (or pick from the list):
