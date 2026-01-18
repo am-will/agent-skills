@@ -23,6 +23,12 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 
+**Note on Codex Subagents Skill**:
+
+You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're all incredible.
+
+<img width="1290" height="437" alt="image" src="https://github.com/user-attachments/assets/ca03b1f8-91ac-45bf-a386-ec8ede5dd6f3" />
+
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
