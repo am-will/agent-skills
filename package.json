@@ -8,5 +8,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@am-will/codexskills": "^0.1.1"
   }
 }

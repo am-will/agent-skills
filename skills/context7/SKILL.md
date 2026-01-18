@@ -7,6 +7,7 @@ description: |
   (3) Implementing features that rely on third-party packages
   (4) Debugging library-specific issues
   (5) Need current documentation beyond training data cutoff
+  (6) AND MOST IMPORTANTLY, when you are installing dependencies, libraries, or frameworks you should ALWAYS check the docs to see what the latest versions are. Do not rely on outdated knowledge.
   Always prefer this over guessing library APIs or using outdated knowledge.
 ---
 
