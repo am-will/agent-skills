@@ -19,6 +19,22 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 **Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
 
+## Context7 usage
+
+1. Search for a library (replace `<library-name>` with the package you need):
+
+```bash
+python3 ~/.codex/skills/context7/scripts/context7.py search "<library-name>"
+```
+
+2. Fetch documentation context using the returned `id` and your query:
+
+```bash
+python3 ~/.codex/skills/context7/scripts/context7.py context "<library-id>" "your query"
+```
+
+Set `--type txt|md` or `--tokens N` to control formatting and length.
+
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):

@@ -38,12 +38,12 @@ set -a; source .env; set +a
 ### 1. Search for the library
 
 ```bash
-python3 ~/.claude/skills/context7/scripts/context7.py search "<library-name>"
+python3 ~/.codex/skills/context7/scripts/context7.py search "<library-name>"
 ```
 
 Example:
 ```bash
-python3 ~/.claude/skills/context7/scripts/context7.py search "next.js"
+python3 ~/.codex/skills/context7/scripts/context7.py search "next.js"
 ```
 
 Returns library metadata including the `id` field needed for step 2.
@@ -51,12 +51,12 @@ Returns library metadata including the `id` field needed for step 2.
 ### 2. Fetch documentation context
 
 ```bash
-python3 ~/.claude/skills/context7/scripts/context7.py context "<library-id>" "<query>"
+python3 ~/.codex/skills/context7/scripts/context7.py context "<library-id>" "<query>"
 ```
 
 Example:
 ```bash
-python3 ~/.claude/skills/context7/scripts/context7.py context "/vercel/next.js" "app router middleware"
+python3 ~/.codex/skills/context7/scripts/context7.py context "/vercel/next.js" "app router middleware"
 ```
 
 Options:
