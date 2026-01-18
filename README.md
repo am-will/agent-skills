@@ -17,25 +17,11 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `agent-browser`: Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
 
-**Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow.
+**Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow. I recommend agent-browser.
 
 **Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
 
-## Context7 usage
-
-1. Search for a library (replace `<library-name>` with the package you need):
-
-```bash
-python3 ~/.codex/skills/context7/scripts/context7.py search "<library-name>"
-```
-
-2. Fetch documentation context using the returned `id` and your query:
-
-```bash
-python3 ~/.codex/skills/context7/scripts/context7.py context "<library-id>" "your query"
-```
-
-Set `--type txt|md` or `--tokens N` to control formatting and length.
+**Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 
 ## Install with codexskills (recommended)
 
