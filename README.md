@@ -17,6 +17,8 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 **Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow.
 
+**Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
+
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
