@@ -22,19 +22,19 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 Install a single skill into your user scope (installs globally for all projects):
 
 ```bash
-npx codexskills --user am-will/codex-skills/skills/openai-docs-skill
+npx @am-will/codexskills --user am-will/codex-skills/skills/openai-docs-skill
 ```
 
 Install all skills (or pick from the list):
 
 ```bash
-npx codexskills --user am-will/codex-skills/skills
+npx @am-will/codexskills --user am-will/codex-skills/skills
 ```
 
 Install into a project (install to just one specific project):
 
 ```bash
-npx codexskills --project am-will/codex-skills/skills /path/to/your/project
+npx @am-will/codexskills --project am-will/codex-skills/skills /path/to/your/project
 ```
 
 Install skills from other Github repositories:
@@ -42,7 +42,14 @@ Install skills from other Github repositories:
 All of the above commands work for any Github Skill repository:
 
 ```bash
-npx codexskills --project https://github.com/numman-ali/n-skills/tree/main/skills /path/to/your/project
+npx @am-will/codexskills --project https://github.com/numman-ali/n-skills/tree/main/skills /path/to/your/project
+```
+
+Install globally and use `codexskills` directly:
+
+```bash
+npm install -g @am-will/codexskills
+codexskills --user am-will/codex-skills/skills
 ```
 
 Notes:

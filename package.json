@@ -1,5 +1,5 @@
 {
-  "name": "codexskills",
+  "name": "@am-will/codexskills",
   "version": "0.1.0",
   "description": "Install Codex skills from Git repositories into user or project scope.",
   "license": "MIT",
