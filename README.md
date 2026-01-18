@@ -8,6 +8,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 - `context7`: Fetch up-to-date library documentation via Context7 API.
 - `openai-docs-skill`: Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
+- `subagent`: Spawn autonomous Codex subagents via background shell to offload context-heavy work (web research, codebase exploration, multi-step workflows). Uses YOLO mode by default with smart model selection (mini for pure search, inherit parent for multi-step tasks).
 - `frontend-design`: Distinctive frontend design system guidance (imported from Anthropic).
 - `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
 - `playwright-skill`: Browser automation/testing helper that auto-detects dev servers, runs Playwright scripts, captures UX data, and stores scripts in `/tmp`.
