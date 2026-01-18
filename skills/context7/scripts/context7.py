@@ -12,12 +12,11 @@ import urllib.error
 import os
 
 API_BASE = "https://context7.com/api/v2"
-API_KEY = os.environ.get("CONTEXT7_API_KEY", "ctx7sk-d6069954-149e-4a74-ae8f-85092cbfcd6f")
 
 
-def make_request(url: str) -> dict | str:
+def make_request(url: str, api_key: str) -> dict | str:
     """Make an authenticated request to Context7 API."""
-    headers = {"Authorization": f"Bearer {API_KEY}"}
+    headers = {"Authorization": f"Bearer {api_key}"}
     req = urllib.request.Request(url, headers=headers)
 
     try:
@@ -33,17 +32,17 @@ def make_request(url: str) -> dict | str:
         return {"error": f"URL Error: {e.reason}"}
 
 
-def search_libraries(library_name: str, query: str = "") -> dict:
+def search_libraries(library_name: str, api_key: str, query: str = "") -> dict:
     """Search for libraries by name and optional query."""
     params = {"libraryName": library_name}
     if query:
         params["query"] = query
 
     url = f"{API_BASE}/libs/search?{urllib.parse.urlencode(params)}"
-    return make_request(url)
+    return make_request(url, api_key)
 
 
-def get_context(library_id: str, query: str, output_type: str = "txt", tokens: int = None) -> str | dict:
+def get_context(library_id: str, query: str, api_key: str, output_type: str = "txt", tokens: int = None) -> str | dict:
     """Fetch documentation context for a specific library."""
     params = {
         "libraryId": library_id,
@@ -54,7 +53,7 @@ def get_context(library_id: str, query: str, output_type: str = "txt", tokens: i
         params["tokens"] = tokens
 
     url = f"{API_BASE}/context?{urllib.parse.urlencode(params)}"
-    return make_request(url)
+    return make_request(url, api_key)
 
 
 def main():
@@ -75,15 +74,23 @@ def main():
 
     args = parser.parse_args()
 
+    api_key = os.environ.get("CONTEXT7_API_KEY")
+    if not api_key:
+        print(
+            "CONTEXT7_API_KEY is not set. Export it in your shell or load it from a .env file.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     if args.command == "search":
-        result = search_libraries(args.library_name, args.query)
+        result = search_libraries(args.library_name, api_key, args.query)
         if isinstance(result, dict):
             print(json.dumps(result, indent=2))
         else:
             print(result)
 
     elif args.command == "context":
-        result = get_context(args.library_id, args.query, args.type, args.tokens)
+        result = get_context(args.library_id, args.query, api_key, args.type, args.tokens)
         if isinstance(result, dict):
             print(json.dumps(result, indent=2))
         else:

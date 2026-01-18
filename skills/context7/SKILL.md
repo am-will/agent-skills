@@ -15,6 +15,24 @@ description: |
 
 Retrieve current library documentation via Context7 API.
 
+## Authentication
+
+This skill requires a Context7 API key in `CONTEXT7_API_KEY`.
+
+Recommended setup options:
+1) Export it in your shell profile (global):
+
+```bash
+export CONTEXT7_API_KEY="your-context7-key"
+```
+
+2) Use a local `.env` file (per-repo):
+
+```bash
+cp skills/context7/.env.example .env
+set -a; source .env; set +a
+```
+
 ## Workflow
 
 ### 1. Search for the library
