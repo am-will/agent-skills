@@ -1,4 +1,5 @@
-<img width="721" height="321" alt="image" src="https://github.com/user-attachments/assets/28bb993b-4c49-4107-9e65-d6bfa6bf21a4" />
+<img width="750" height="491" alt="image" src="https://github.com/user-attachments/assets/c244cbdd-6f98-40b5-81f0-754aad546be4" />
+
 
 # CodexSkills
 
