@@ -1,0 +1,11 @@
+.agent/
+.git/
+.venv/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.DS_Store
+**/node_modules/
+npm-debug.log*
+**/playwright-skill/node_modules/
