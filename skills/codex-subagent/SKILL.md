@@ -43,7 +43,7 @@ Spawn autonomous subagents to offload context-heavy work. Subagents burn their o
 
 ❌ **Bad:** "Search for news"
 
-✅ **Good:** "Search for news about Iran protests from January 18, 2026. Focus on: 1) Casualty figures from credible sources, 2) Government responses, 3) International reactions. Prioritize Reuters, AP, BBC, Al Jazeera. Return 2-3 paragraph summary with source citations."
+✅ **Good:** "Find the most recent Codex SDK documentation and summarize key updates. Focus on: 1) Installation/quickstart, 2) Core API methods and parameters, 3) Breaking changes or deprecations. Prioritize official OpenAI docs and release notes. Return a concise summary with citations."
 
 ❌ **Bad:** "Find API endpoints"
 
@@ -164,7 +164,7 @@ All subagents run in full-auto mode (bypass approvals + sandboxing):
 ```bash
 codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
   -m gpt-5.1-codex-mini -c 'model_reasoning_effort="medium"' \
-  "Search news from Jan 18, 2026 about Iran protests. Find: casualty figures, government response, international reactions. Focus on Reuters, AP, BBC. Return 2-3 paragraph summary with citations."
+  "Find the most recent Codex SDK documentation. Summarize: install/quickstart, core API methods, and any breaking changes. Prioritize official OpenAI docs and release notes. Return a concise summary with citations."
 ```
 
 **Codebase Analysis (inherit parent):**
