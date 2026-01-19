@@ -15,7 +15,7 @@ This folder contains reusable prompt templates that pair with the skills and pla
 
 - `prompts/codex-plan.md`
   - Planning prompt intended for other coding agents to run **Codex xhigh** for planning.
-  - Use this to generate a high-quality plan in one agent, then hand that plan to another agent for implementation.
+  - Use this to generate a high-quality plan in Codex, then hand that plan to another agent for implementation automatically.
 
 ## Suggested Workflow
 1. Use `prompts/planner.md` (or `prompts/codex-plan.md` if you want Codex xhigh planning).
