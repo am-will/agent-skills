@@ -107,8 +107,8 @@ case "$cmd" in
     fi
     args="$(jq -n --arg query "$query" --arg limit "${limit:-}" --arg cursor "${cursor:-}" \
       '{query:$query}
-       + ( $limit | length > 0 ? {limit: ($limit|tonumber)} : {} )
-       + ( $cursor | length > 0 ? {cursor: $cursor} : {} )')"
+       + (if ( $limit | length > 0 ) then {limit: ($limit|tonumber)} else {} end)
+       + (if ( $cursor | length > 0 ) then {cursor: $cursor} else {} end)')"
     resp="$(mcp_tool_call "search_openai_docs" "$args")"
     ensure_ok "$resp"
     echo "$resp" | jq -r '.result.content[0].text | fromjson'
@@ -121,8 +121,8 @@ case "$cmd" in
       exit 1
     fi
     args="$(jq -n --arg limit "${limit:-}" --arg cursor "${cursor:-}" \
-      '( $limit | length > 0 ? {limit: ($limit|tonumber)} : {} )
-       + ( $cursor | length > 0 ? {cursor: $cursor} : {} )')"
+      '(if ( $limit | length > 0 ) then {limit: ($limit|tonumber)} else {} end)
+       + (if ( $cursor | length > 0 ) then {cursor: $cursor} else {} end)')"
     resp="$(mcp_tool_call "list_openai_docs" "$args")"
     ensure_ok "$resp"
     echo "$resp" | jq -r '.result.content[0].text | fromjson'
@@ -135,7 +135,7 @@ case "$cmd" in
       exit 1
     fi
     args="$(jq -n --arg url "$url" --arg anchor "${anchor:-}" \
-      '{url:$url} + ( $anchor | length > 0 ? {anchor: $anchor} : {} )')"
+      '{url:$url} + (if ( $anchor | length > 0 ) then {anchor: $anchor} else {} end)')"
     resp="$(mcp_tool_call "fetch_openai_doc" "$args")"
     ensure_ok "$resp"
     echo "$resp" | jq -r '.result.content[0].text'
@@ -163,8 +163,8 @@ case "$cmd" in
     fi
     args="$(jq -n --arg url "$url" --argjson languages "$lang_json" --argjson codeOnly "$code_only_flag" \
       '{url:$url}
-       + ( $languages | length > 0 ? {languages: $languages} : {} )
-       + ( $codeOnly == true ? {codeExamplesOnly: true} : {} )')"
+       + (if ( $languages | length > 0 ) then {languages: $languages} else {} end)
+       + (if ( $codeOnly == true ) then {codeExamplesOnly: true} else {} end)')"
     resp="$(mcp_tool_call "get_openapi_spec" "$args")"
     ensure_ok "$resp"
     echo "$resp" | jq -r '.result.content[0].text | fromjson'

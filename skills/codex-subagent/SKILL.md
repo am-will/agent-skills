@@ -2,7 +2,7 @@
 name: codex-subagent
 description: >
   Spawn autonomous Codex subagents via background shell to offload context-heavy work.
-  Auto-trigger for: deep research (5+ searches), codebase exploration (10+ files), multi-step
+  Auto-trigger for: deep research (5+ searches), codebase exploration (5+ files), multi-step
   workflows, exploratory tasks, long-running operations, documentation generation. Subagents
   run in YOLO mode, act autonomously, use smart model selection (mini for pure search, inherit
   parent for multi-step). Can spawn up to 5 parallel subagents.
@@ -16,7 +16,7 @@ Spawn autonomous subagents to offload context-heavy work. Subagents burn their o
 
 **Auto-trigger when:**
 - 5+ web searches expected
-- 10+ file reads required
+- 5+ file reads required
 - Multi-step workflows (only final result matters)
 - Exploratory/discovery tasks (unknown scope)
 - Long-running operations (verbose output)
