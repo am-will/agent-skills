@@ -4,7 +4,7 @@ description: >
   Spawn autonomous Codex subagents via background shell to offload context-heavy work.
   Auto-trigger for: deep research (3+ searches), codebase exploration (6+ files), multi-step
   workflows, exploratory tasks, long-running operations, documentation generation. Subagents
-  run in YOLO mode, act autonomously, use smart model selection (mini for pure search, inherit
+  run in full-auto mode, act autonomously, use smart model selection (mini for pure search, inherit
   parent for multi-step). Can spawn up to 5 parallel subagents.
 ---
 
@@ -78,16 +78,16 @@ Complete when: [specific conditions met]
 ### Use Mini Model (gpt-5.1-codex-mini + medium)
 **Pure search only** - no additional work after gathering info:
 ```bash
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.1-codex-mini -c model_reasoning_effort=medium \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.1-codex-mini -c 'model_reasoning_effort="medium"' \
   "Search web for [TOPIC] and summarize findings"
 ```
 
 ### Inherit Parent Model + Reasoning
 **Multi-step workflows** - search + analyze/refactor/generate:
 ```bash
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.2-codex -c model_reasoning_effort=high \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
   "Find auth files THEN analyze security patterns and propose improvements"
 ```
 
@@ -108,17 +108,17 @@ MODEL=$(grep "^model = " ~/.codex/config.toml | cut -d'"' -f2)
 REASONING=$(grep "^model_reasoning_effort" ~/.codex/config.toml | cut -d'"' -f2)
 
 # Spawn subagent (inherit parent)
-codex exec --yolo --skip-git-repo-check \
-  -c model=$MODEL -c model_reasoning_effort=$REASONING \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" \
   "DETAILED_PROMPT_WITH_CONTEXT"
 
 # Pure search (use mini)
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.1-codex-mini -c model_reasoning_effort=medium \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.1-codex-mini -c 'model_reasoning_effort="medium"' \
   "SEARCH_ONLY_PROMPT"
 
 # JSON output for parsing
-codex exec --yolo --json "PROMPT" | jq -r 'select(.event=="turn.completed") | .content'
+codex exec --dangerously-bypass-approvals-and-sandbox --json "PROMPT" | jq -r 'select(.event=="turn.completed") | .content'
 ```
 
 ## Parallel Subagents (Up to 5)
@@ -126,9 +126,9 @@ codex exec --yolo --json "PROMPT" | jq -r 'select(.event=="turn.completed") | .c
 Spawn multiple subagents for independent tasks:
 ```bash
 # Research 3 different topics simultaneously
-codex exec --yolo -c model=$MODEL -c model_reasoning_effort=$REASONING "Research topic A..." &
-codex exec --yolo -c model=$MODEL -c model_reasoning_effort=$REASONING "Research topic B..." &
-codex exec --yolo -c model=$MODEL -c model_reasoning_effort=$REASONING "Research topic C..." &
+codex exec --dangerously-bypass-approvals-and-sandbox -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" "Research topic A..." &
+codex exec --dangerously-bypass-approvals-and-sandbox -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" "Research topic B..." &
+codex exec --dangerously-bypass-approvals-and-sandbox -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" "Research topic C..." &
 wait
 ```
 
@@ -136,16 +136,16 @@ wait
 
 | Flag | Purpose |
 |------|---------|
-| `--yolo` | **Required** - Full autonomy, bypass approvals |
-| `-c model=X` | Specify model (mini for search, parent for multi-step) |
-| `-c model_reasoning_effort=X` | Specify reasoning level |
+| `--dangerously-bypass-approvals-and-sandbox` | **Required** - Full autonomy, bypass approvals + sandbox |
+| `-m X` | Specify model (mini for search, parent for multi-step) |
+| `-c model_reasoning_effort="X"` | Specify reasoning level (TOML string) |
 | `--json` | Machine-readable output |
 | `--output-last-message, -o` | Save final result to file |
 | `--skip-git-repo-check` | Allow outside git repos |
 
-## YOLO Mode
+## Full-Auto Mode
 
-All subagents run in YOLO mode (bypass approvals + sandboxing):
+All subagents run in full-auto mode (bypass approvals + sandboxing):
 - Act autonomously, no permission asking
 - Make decisions and proceed boldly
 - Only pause for destructive operations (data loss, external impact, security)
@@ -163,22 +163,22 @@ All subagents run in YOLO mode (bypass approvals + sandboxing):
 
 **Pure Web Search (mini):**
 ```bash
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.1-codex-mini -c model_reasoning_effort=medium \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.1-codex-mini -c 'model_reasoning_effort="medium"' \
   "Search news from Jan 18, 2026 about Iran protests. Find: casualty figures, government response, international reactions. Focus on Reuters, AP, BBC. Return 2-3 paragraph summary with citations."
 ```
 
 **Codebase Analysis (inherit parent):**
 ```bash
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.2-codex -c model_reasoning_effort=high \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
   "Analyze authentication in this Next.js app. Check /app, /lib/auth, middleware. Document: session strategy, auth provider, protected routes, security patterns. Return architecture diagram (mermaid) + findings."
 ```
 
 **Research + Proposal (inherit parent):**
 ```bash
-codex exec --yolo --skip-git-repo-check \
-  -c model=gpt-5.2-codex -c model_reasoning_effort=high \
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
   "Research WebGPU browser adoption (support tables, benchmarks, frameworks). THEN analyze feasibility for our React app. Consider: performance gains, browser compatibility, implementation effort. Return recommendation with pros/cons."
 ```
 
