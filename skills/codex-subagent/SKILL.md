@@ -87,7 +87,7 @@ codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
 **Multi-step workflows** - search + analyze/refactor/generate:
 ```bash
 codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
-  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
+  -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" \
   "Find auth files THEN analyze security patterns and propose improvements"
 ```
 
@@ -103,9 +103,8 @@ Is task PURELY search/gather?
 ## Basic Usage
 
 ```bash
-# Get parent's settings
-MODEL=$(grep "^model = " ~/.codex/config.toml | cut -d'"' -f2)
-REASONING=$(grep "^model_reasoning_effort" ~/.codex/config.toml | cut -d'"' -f2)
+# Get parent session settings (respects active profile; falls back to top-level)
+read -r MODEL REASONING < <(scripts/codex-parent-settings.sh)
 
 # Spawn subagent (inherit parent)
 codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
@@ -171,14 +170,14 @@ codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
 **Codebase Analysis (inherit parent):**
 ```bash
 codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
-  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
+  -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" \
   "Analyze authentication in this Next.js app. Check /app, /lib/auth, middleware. Document: session strategy, auth provider, protected routes, security patterns. Return architecture diagram (mermaid) + findings."
 ```
 
 **Research + Proposal (inherit parent):**
 ```bash
 codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
-  -m gpt-5.2-codex -c 'model_reasoning_effort="high"' \
+  -m "$MODEL" -c "model_reasoning_effort=\"$REASONING\"" \
   "Research WebGPU browser adoption (support tables, benchmarks, frameworks). THEN analyze feasibility for our React app. Consider: performance gains, browser compatibility, implementation effort. Return recommendation with pros/cons."
 ```
 
@@ -197,7 +196,8 @@ codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
 Parent settings: `~/.codex/config.toml`
 ```toml
 model = "gpt-5.2-codex"
-model_reasoning_effort = "high"  # high | medium | low
+model_reasoning_effort = "high"  # none | minimal | low | medium | high | xhigh
+profile = "yolo"                 # optional; when set, profile values override top-level
 ```
 
 ## Docs
