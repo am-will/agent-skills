@@ -8,7 +8,7 @@ Research and create a comprehensive plan for: {{ARGS}}
 ## Planning Process
 
 ### Phase 0: Clarify Requirements
-Before diving into research, use the **AskUserQuestion** tool (if available) to identify and resolve ambiguities in the request. Ask up to 5 targeted questions that will significantly improve plan quality:
+Before diving into research, use the **AskUserQuestion** tool (if available, else just yield and ask) to identify and resolve ambiguities in the request. Ask up to 5 targeted questions that will significantly improve plan quality:
 
 - **Scope boundaries**: What's explicitly in or out of scope?
 - **Constraints**: Are there technology, timeline, or architectural constraints?
