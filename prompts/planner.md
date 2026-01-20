@@ -7,6 +7,17 @@ Research and create a comprehensive plan for: {{ARGS}}
 
 ## Planning Process
 
+### Phase 0: Clarify Requirements
+Before diving into research, use the **AskUserQuestion** tool (if available) to identify and resolve ambiguities in the request. Ask up to 5 targeted questions that will significantly improve plan quality:
+
+- **Scope boundaries**: What's explicitly in or out of scope?
+- **Constraints**: Are there technology, timeline, or architectural constraints?
+- **Priorities**: Which aspects are most critical vs. nice-to-have?
+- **Edge cases**: How should specific scenarios be handled?
+- **Success criteria**: What does "done" look like?
+
+Focus on questions where the answer would meaningfully change your approach. Skip this phase only if the request is already unambiguous and well-defined.
+
 ### Phase 1: Research & Understanding
 1. **Thoroughly investigate the codebase** to understand:
    - Current architecture and relevant code patterns
