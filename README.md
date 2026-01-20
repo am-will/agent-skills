@@ -16,12 +16,25 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `gemini-computer-use`: Gemini 2.5 Computer Use browser-control agent skill (Playwright + safety confirmation loop).
 - `agent-browser`: Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
+- `read-github-docs`: Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
 
 **Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow. I recommend agent-browser.
 
 **Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
 
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
+
+**Note on read-github-docs**: This skill provides CLI access to any GitHub repository's documentation via the gitmcp.io service. Usage:
+```bash
+# Fetch full documentation
+python3 scripts/gitmcp.py fetch-docs owner/repo
+
+# Search documentation
+python3 scripts/gitmcp.py search-docs owner/repo "query"
+
+# Search code
+python3 scripts/gitmcp.py search-code owner/repo "function_name"
+```
 
 **Note on Codex Subagents Skill**:
 
