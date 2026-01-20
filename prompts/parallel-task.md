@@ -91,6 +91,7 @@ After subagents complete:
    - Any next steps needed
 3. When a task is completed, ALWAYS mark the task COMPLETED! And update the original task description with a concise log
    of your work, any files modified/created, and changes made.
+   - In addition to logs, if you encountered: note any errors, gotchas, or unexpected behavior encountered during the task. 
 
 ### Step 7: REPEAT!
 CONTINUE! Run all unblocked tasks in parallel until the plan is done. Do not yield until all tasks are done.
