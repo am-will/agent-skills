@@ -112,6 +112,27 @@ async function pathExists(p) {
   }
 }
 
+async function hasTrashCommand() {
+  try {
+    execSync('command -v trash', { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function cleanupDir(dir) {
+  if (await hasTrashCommand()) {
+    try {
+      execSync(`trash "${dir}"`, { stdio: 'ignore' });
+      return;
+    } catch {
+      // Fall through to fs.rm
+    }
+  }
+  await fsp.rm(dir, { recursive: true, force: true });
+}
+
 async function listSkillDirs(skillsRoot) {
   const entries = await fsp.readdir(skillsRoot, { withFileTypes: true });
   const dirs = [];
@@ -250,7 +271,6 @@ async function promptSelectSkills(skillDirs) {
 
 async function installSkills({ scope, spec, projectPath, installAll }) {
   ensureCmd('git');
-  ensureCmd('trash');
   printBanner();
 
   const { repoUrl, subPath } = splitRepoSpec(spec);
@@ -310,9 +330,9 @@ async function installSkills({ scope, spec, projectPath, installAll }) {
     }
   } finally {
     try {
-      execSync(`trash ${tmpBase}`, { stdio: 'ignore' });
+      await cleanupDir(tmpBase);
     } catch (err) {
-      console.warn(`Warning: unable to trash temp dir: ${tmpBase}`);
+      console.warn(`Warning: unable to clean up temp dir: ${tmpBase}`);
     }
   }
 }
