@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LLM Council</title>
+    <style>
+:root {
+  color-scheme: light;
+  --bg: #f7f4ea;
+  --ink: #141414;
+  --accent: #ff6b00;
+  --accent-2: #00d5ff;
+  --panel: #ffffff;
+  --shadow: #000000;
+  --soft: rgba(0, 0, 0, 0.1);
+  --radius: 0.75rem;
+  --display: 'Impact', 'Haettenschweiler', 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+  --body: 'Franklin Gothic Medium', 'Trebuchet MS', 'Verdana', sans-serif;
+  --mono: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 20%, #fff4d6 0%, var(--bg) 60%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.04) 0 2px, transparent 2px 10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff9e8;
+  border: 3px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--shadow);
+}
+
+.brand-mark {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand-meta,
+.status-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  font-family: var(--mono);
+  border: 2px solid var(--ink);
+  padding: 0.35rem 0.75rem;
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+
+.status-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-track {
+  width: 2.4rem;
+  height: 1.3rem;
+  border: 2px solid var(--ink);
+  background: #fff;
+  position: relative;
+}
+
+.toggle-track::after {
+  content: '';
+  width: 0.9rem;
+  height: 0.9rem;
+  background: var(--accent);
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  transition: transform 150ms ease;
+}
+
+.toggle input:checked + .toggle-track::after {
+  transform: translateX(1.1rem);
+}
+
+.task,
+.panel {
+  background: var(--panel);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--shadow);
+  padding: 1.25rem 1.5rem;
+}
+
+.section-title h2,
+.panel-header h2 {
+  font-family: var(--display);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.task-brief {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.select-label,
+.editor-pane label,
+.preview-pane label,
+.action-group label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.planner-select {
+  min-height: 44px;
+  padding: 0.5rem 2.4rem 0.5rem 0.75rem;
+  border: 3px solid var(--ink);
+  background: #fff;
+  font-family: var(--body);
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: right 0.9rem center, right 0.55rem center;
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+}
+
+.planner-detail {
+  background: #fffef6;
+}
+
+.planner-card {
+  border: 3px solid var(--ink);
+  padding: 0.9rem 1rem;
+  background: #fff;
+}
+
+.planner-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.status-chip {
+  border: 2px solid var(--ink);
+  padding: 0.1rem 0.45rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.content-block {
+  margin: 0;
+  font-family: var(--mono);
+  background: #fef3d6;
+  border: 2px solid var(--ink);
+  padding: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+#plannerSummaryText,
+#judgeSummary {
+  min-height: 360px;
+  max-height: 460px;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.error-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #b00020;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+textarea,
+textarea#refineContext {
+  width: 100%;
+  min-height: 180px;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  border: 3px solid var(--ink);
+  padding: 0.8rem;
+  background: #fff;
+  resize: vertical;
+}
+
+textarea#refineContext {
+  min-height: 96px;
+}
+
+.action-row {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border: 3px solid var(--ink);
+  background: #fff;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--shadow);
+  transition: transform 120ms ease;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.danger {
+  background: var(--accent-2);
+  color: #002633;
+}
+
+.rerun-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.action-group--actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.rerun-row .btn.danger {
+  min-height: 44px;
+}
+
+.status-text {
+  font-size: 0.9rem;
+}
+
+.panel-wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 2fr 1.2fr 1fr;
+    align-items: center;
+  }
+
+  .editor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="brand">
+          <div class="brand-mark">LLM Council</div>
+          <div class="brand-meta">
+            <span id="runId">run: —</span>
+            <span id="phase">phase: —</span>
+          </div>
+        </div>
+        <div class="status">
+          <div id="connectionStatus" class="status-pill">connecting…</div>
+          <div class="status-meta">
+            <span id="lastUpdated">last update: —</span>
+            <span id="sessionCountdown">session: —</span>
+          </div>
+        </div>
+        <div class="status-controls">
+          <label class="toggle">
+            <input id="keepOpenToggle" type="checkbox">
+            <span class="toggle-track"></span>
+            <span class="toggle-label">Keep UI open (disable auto-close)</span>
+          </label>
+          <span id="keepOpenStatus" class="status-text"></span>
+        </div>
+      </header>
+
+      <section class="task">
+        <div class="section-title">
+          <h2>Task Brief</h2>
+        </div>
+        <p id="taskBrief" class="task-brief">—</p>
+      </section>
+
+      <main class="grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Planner Output</h2>
+            <span id="plannerSummary" class="panel-sub">—</span>
+          </div>
+          <div class="panel-body">
+            <label class="select-label" for="plannerSelect">Planner</label>
+            <select id="plannerSelect" class="planner-select"></select>
+            <div class="planner-card planner-detail">
+              <div class="planner-meta">
+                <div id="plannerId" class="planner-id">—</div>
+                <span id="plannerStatus" class="status-chip">—</span>
+              </div>
+              <pre id="plannerSummaryText" class="content-block">—</pre>
+              <ul id="plannerErrors" class="error-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Judge Output</h2>
+            <span id="judgeStatus" class="panel-sub">—</span>
+          </div>
+          <div class="panel-body">
+            <pre id="judgeSummary" class="content-block">—</pre>
+            <ul id="judgeErrors" class="error-list"></ul>
+          </div>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Final Plan</h2>
+            <span id="finalPlanStatus" class="panel-sub">—</span>
+          </div>
+          <div class="panel-body">
+            <div class="editor-grid">
+              <div class="editor-pane">
+                <label for="finalPlanEditor">Editor</label>
+                <textarea id="finalPlanEditor" spellcheck="false"></textarea>
+              </div>
+              <div class="preview-pane" id="previewPane">
+                <label>Preview</label>
+                <pre id="finalPlanPreview" class="content-block">—</pre>
+              </div>
+            </div>
+
+            <div class="action-row">
+              <div class="action-group action-group--actions">
+                <button id="acceptBtn" class="btn primary" type="button">Accept</button>
+                <button id="saveBtn" class="btn primary" type="button">Save</button>
+                <span id="saveStatus" class="status-text"></span>
+              </div>
+              <div class="action-group">
+                <label for="refineContext">Refine Notes</label>
+                <div class="rerun-row">
+                  <textarea id="refineContext" rows="3" placeholder="Describe what to refine in the plan"></textarea>
+                  <button id="refineBtn" class="btn danger" type="button">Refine</button>
+                </div>
+                <span id="refineStatus" class="status-text"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

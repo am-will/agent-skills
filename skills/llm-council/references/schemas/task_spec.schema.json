@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "task_spec.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task"],
+  "properties": {
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "repo_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root": { "type": "string" },
+        "paths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_plans": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "time_budget_sec": { "type": "integer", "minimum": 30 },
+        "random_seed": { "type": "integer" },
+        "language": { "type": "string" }
+      }
+    },
+    "agents": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "planners": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/agent" }
+        },
+        "judge": { "$ref": "#/$defs/agent" }
+      }
+    }
+  },
+  "$defs": {
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "kind": { "type": "string" },
+        "cli": { "type": "string" },
+        "type": { "type": "string" },
+        "model": { "type": "string" },
+        "reasoning_effort": { "type": "string" },
+        "agent": { "type": "string" },
+        "format": { "type": "string" },
+        "cli_format": { "type": "string" },
+        "attach": { "type": "string" },
+        "command": { "type": "string" },
+        "prompt_mode": { "type": "string", "enum": ["stdin", "arg"] },
+        "output_format": { "type": "string" },
+        "extra_args": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

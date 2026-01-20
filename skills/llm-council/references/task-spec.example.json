@@ -1,0 +1,28 @@
+{
+  "task": "Update the llm-council skill to support configurable planner/judge agents and models, add opencode CLI support, and document the new configuration.",
+  "constraints": [
+    "Keep current defaults if no agent configuration is provided.",
+    "Support any number of planner agents (>=1).",
+    "Allow multiple opencode planners with different models."
+  ],
+  "repo_context": {
+    "root": ".",
+    "paths": [
+      "scripts/llm_council.py",
+      "SKILL.md",
+      "references/cli-notes.md",
+      "references/schemas/task_spec.schema.json"
+    ],
+    "notes": "Focus on agent selection and CLI handling only."
+  },
+  "agents": {
+    "planners": [
+      { "name": "codex", "kind": "codex", "model": "gpt-5.2-codex", "reasoning_effort": "xhigh" },
+      { "name": "claude-opus", "kind": "claude", "model": "opus" },
+      { "name": "gemini-pro", "kind": "gemini", "model": "gemini-3-pro-preview" },
+      { "name": "opencode-claude", "kind": "opencode", "model": "anthropic/claude-sonnet-4-5" },
+      { "name": "opencode-gpt", "kind": "opencode", "model": "openai/gpt-4.1" }
+    ],
+    "judge": { "name": "codex-judge", "kind": "codex", "model": "gpt-5.2-codex" }
+  }
+}
