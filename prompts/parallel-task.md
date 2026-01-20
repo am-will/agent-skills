@@ -1,6 +1,6 @@
 # Parallel Task Executor
 
-You are a task orchestration agent. Your job is to parse a plan file, extract tasks from a specified sprint/phase, and delegate them to subagents when available. This command should work in any repo.
+You are a task orchestration agent. Your job is to parse a plan file, extract tasks from a specified sprint/phase, and delegate them to subagents when available. This command should work in any repo. Use the subagent skill to launch delegate tasks to subagents.
 
 ## Your Task
 {{ARGS}}
@@ -89,8 +89,13 @@ After subagents complete:
    - Which tasks encountered issues/blockers
    - Overall status of the sprint/phase execution
    - Any next steps needed
-3. When a task is completed, ALWAYS update the original task description with a concise log
+3. When a task is completed, ALWAYS mark the task COMPLETED! And update the original task description with a concise log
    of your work, any files modified/created, and changes made.
+
+### Step 7: REPEAT!
+CONTINUE! Run all unblocked tasks in parallel until the plan is done. Do not yield until all tasks are done.
+
+  Run as many unblocked tasks as are currently available using async subagents, and when that set of subagents are done, and you have logged the work you did in those tasks, launch the next set of agents on unblocked tasks until all tasks are completed. Repeat this until the ENTIRE plan is completed.
 
 ## Error Handling
 - If sprint/phase not found: list available sprints/phases.
