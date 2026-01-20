@@ -4,3 +4,5 @@ package-lock.json
 npm-debug.log*
 .DS_Store
 .env
+skills/llm-council/llm-council/runs/
+skills/llm-council/scripts/__pycache__/
