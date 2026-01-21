@@ -1,5 +1,5 @@
 ---
-name: read-github-docs
+name: read-github
 description: Read and search GitHub repository documentation via gitmcp.io MCP service. Use when given a GitHub repo URL or owner/repo path and asked to read docs, understand the codebase, search code, or explore repository contents. Converts github.com URLs to gitmcp.io for LLM-friendly access.
 ---
 
