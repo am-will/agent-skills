@@ -8,7 +8,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 ## Available skills
 
 - `codex-subagent`:
-  Spawn autonomous Codex subagents via background shell to offload context-heavy work (web research, codebase exploration, multi-step workflows). Uses YOLO mode by default with smart model selection (mini for pure search, inherit parent for multi-step tasks).
+  Spawn autonomous Codex subagents via background shell to offload context-heavy work (web research, codebase exploration, multi-step workflows). Uses full-auto mode by default with smart model selection (mini for pure search, inherit parent for multi-step tasks).
 - `context7`:
   Fetch up-to-date library documentation via Context7 API.
 - `openai-docs-skill`:
