@@ -12,13 +12,13 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `openai-docs-skill`: Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
 - `frontend-design`: Distinctive frontend design system guidance (imported from Anthropic).
 - `frontend-responsive-ui`: Responsive UI standards (imported from Anthropic).
-- `playwright-skill`: Browser automation/testing helper that auto-detects dev servers, runs Playwright scripts, captures UX data, and stores scripts in `/tmp`.
 - `gemini-computer-use`: Gemini 2.5 Computer Use browser-control agent skill (Playwright + safety confirmation loop).
 - `agent-browser`: Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 - `vercel-react-best-practices`: React/Next.js performance guidance (imported from Vercel).
 - `read-github-docs`: Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
+- `llm-council`: Multi-agent orchestration system for planning complex tasks. Spawns multiple AI planners (Claude, Codex, Gemini) to generate independent plans, then uses a judge agent to synthesize the best approach. Includes a real-time web UI for monitoring progress and refining plans interactively.
 
-**Note on Browser Tools**: The repo includes three browser automation tools (`playwright-skill`, `gemini-computer-use`, and `agent-browser`). You don't need to install all of them as they all do similar things - choose the one that best fits your workflow. I recommend agent-browser.
+**Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
 
 **Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
 
@@ -35,6 +35,8 @@ python3 scripts/gitmcp.py search-docs owner/repo "query"
 # Search code
 python3 scripts/gitmcp.py search-code owner/repo "function_name"
 ```
+
+**Note on llm-council**: This skill requires API keys for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
 
 **Note on Codex Subagents Skill**:
 
