@@ -77,6 +77,6 @@ codexskills --user am-will/codex-skills/skills
 
 **Note on Codex Subagents Skill**:
 
-You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're all incredible.
+You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're useful.
 
 <img width="1290" height="437" alt="image" src="https://github.com/user-attachments/assets/ca03b1f8-91ac-45bf-a386-ec8ede5dd6f3" />
