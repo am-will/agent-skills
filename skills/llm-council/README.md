@@ -64,8 +64,19 @@ opencode # https://github.com/opencode-org/opencode
 
 Run the setup wizard to configure your AI models:
 
+**Linux / macOS:**
 ```bash
 ./setup.sh
+```
+
+**Windows (Command Prompt):**
+```cmd
+setup.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+.\setup.ps1
 ```
 
 The wizard will prompt you to:
@@ -84,7 +95,7 @@ The wizard will prompt you to:
 
 Configuration is saved to `~/.config/llm-council/agents.json`
 
-You can re-run `./setup.sh` at any time to change your configuration.
+You can re-run the setup script at any time to change your configuration (`./setup.sh`, `setup.bat`, or `.\setup.ps1`).
 
 ### 3. Using as a Skill in Coding Agents (Recommended)
 
@@ -204,7 +215,7 @@ python scripts/llm_council.py ui --run-dir llm-council/runs/TIMESTAMP-TASK
 python scripts/llm_council.py configure [--config PATH]
 ```
 
-Equivalent to running `./setup.sh`
+Equivalent to running the setup script (`./setup.sh`, `setup.bat`, or `.\setup.ps1`)
 
 ## Web UI
 
@@ -447,7 +458,7 @@ python scripts/llm_council.py run --spec task.json --out plan.md
 
 ### "Models not configured" Error
 
-Run `./setup.sh` to configure your agents.
+Run the setup script (`./setup.sh`, `setup.bat`, or `.\setup.ps1`) to configure your agents.
 
 ### Planner Timed Out
 
