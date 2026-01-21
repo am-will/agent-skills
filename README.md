@@ -24,19 +24,7 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 
-**Note on read-github-docs**: This skill provides CLI access to any GitHub repository's documentation via the gitmcp.io service. Usage:
-```bash
-# Fetch full documentation
-python3 scripts/gitmcp.py fetch-docs owner/repo
-
-# Search documentation
-python3 scripts/gitmcp.py search-docs owner/repo "query"
-
-# Search code
-python3 scripts/gitmcp.py search-code owner/repo "function_name"
-```
-
-**Note on llm-council**: This skill requires API keys for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
+**Note on llm-council**: This skill requires API keys or Active Subscriptions for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
 
 **Note on Codex Subagents Skill**:
 
