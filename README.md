@@ -18,20 +18,6 @@ A collection of Codex/agent skills. Check the /skills/ folder for a library of s
 - `read-github`: Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
 - `llm-council`: Multi-agent orchestration system for planning complex tasks. Spawns multiple AI planners (Claude, Codex, Gemini) to generate independent plans, then uses a judge agent to synthesize the best approach. Includes a real-time web UI for monitoring progress and refining plans interactively.
 
-**Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
-
-**Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
-
-**Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
-
-**Note on llm-council**: This skill requires API keys or Active Subscriptions for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
-
-**Note on Codex Subagents Skill**:
-
-You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're all incredible.
-
-<img width="1290" height="437" alt="image" src="https://github.com/user-attachments/assets/ca03b1f8-91ac-45bf-a386-ec8ede5dd6f3" />
-
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
@@ -67,6 +53,20 @@ npm install -g @am-will/codexskills
 codexskills --user am-will/codex-skills/skills
 ```
 
-Notes:
+**Notes:**
 - When multiple skills are found, codexskills prompts you to choose (space to toggle, enter to confirm).
 - When you post a path to just one skill, it will not prompt you "are you sure?"
+
+**Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
+
+**Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
+
+**Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
+
+**Note on llm-council**: This skill requires API keys or Active Subscriptions for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
+
+**Note on Codex Subagents Skill**:
+
+You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're all incredible.
+
+<img width="1290" height="437" alt="image" src="https://github.com/user-attachments/assets/ca03b1f8-91ac-45bf-a386-ec8ede5dd6f3" />
