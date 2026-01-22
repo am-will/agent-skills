@@ -20,12 +20,13 @@ description: >
  - Configure defaults interactively with `python3 scripts/llm_council.py configure` (writes `$XDG_CONFIG_HOME/llm-council/agents.json` or `~/.config/llm-council/agents.json`).
 
 ## Workflow
-1. Load the task spec and always ask thorough intake questions to build a clear task brief. Clarify any ambiguities, constraints, and success criteria. Remind the user that answers are optional but improve plan quality.
-2. Build planner prompts (Markdown template) and launch the configured planner agents in parallel background shells.
-3. Collect outputs, validate Markdown structure, and retry up to 2 times on failure. If any agents fails, yield and alert the user to fix the issue.
-4. Anonymize plan contents and randomize order before judging.
-5. Run the judge with the rubric and Markdown template, then save `judge.md` and `final-plan.md`.
-6. Session management: DO NOT yield/finish the response until a full 30-minute timer has completed and judge + `final-plan.md` are confirmed saved; keep the session open during that interval to avoid closing the interface. If you yield while the Council is running, the session will be terminated and you will FAIL to complete the task. The user will escape out when they are ready or after the 30 minutes have elapsed.
+1. Load the task spec, and explore the codebase you are in to get a strong sense of the product. 
+2. Always ask thorough intake questions to build a clear task brief. Clarify any ambiguities, constraints, and success criteria. Remind the user that answers are optional but improve plan quality.
+3. Build planner prompts (Markdown template) and launch the configured planner agents in parallel background shells.
+4. Collect outputs, validate Markdown structure, and retry up to 2 times on failure. If any agents fails, yield and alert the user to fix the issue.
+5. Anonymize plan contents and randomize order before judging.
+6. Run the judge with the rubric and Markdown template, then save `judge.md` and `final-plan.md`.
+7. Session management: DO NOT yield/finish the response until a full 30-minute timer has completed and judge + `final-plan.md` are confirmed saved; keep the session open during that interval to avoid closing the interface. If you yield while the Council is running, the session will be terminated and you will FAIL to complete the task. The user will escape out when they are ready or after the 30 minutes have elapsed.
    - Note on Session Management: Plans can take quite some time to build, do not panic if it seems stuck. You do not need to poll every few seconds. Once every 20-30 seconds is sufficient. Continue to allow them as much time as needed up to the 30-minute mark.
 
 ## Agent configuration (task_spec)
