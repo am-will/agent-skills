@@ -110,7 +110,6 @@ Update the plan if you have improvements.
 ### Task 1.1: [Name]
 - **Location**: [File paths]
 - **Description**: [What to do]
-- **Complexity**: [1-10]
 - **Dependencies**: [Previous tasks]
 - **Acceptance Criteria**:
   - [Specific criteria]
