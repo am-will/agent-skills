@@ -1,0 +1,26 @@
+{
+  "name": "llm-council-promo-enhanced",
+  "version": "1.0.0",
+  "description": "LLM Council promotional video - Enhanced version with audio and polish",
+  "scripts": {
+    "start": "bunx remotion studio",
+    "build": "bunx remotion render src/index.tsx LLMCouncilPromo out/promo.mp4",
+    "render:main": "bunx remotion render src/index.tsx LLMCouncilPromo out/llm-council-promo.mp4",
+    "render:square": "bunx remotion render src/index.tsx LLMCouncilPromo out/llm-council-square.mp4 --width=1080 --height=1080",
+    "render:vertical": "bunx remotion render src/index.tsx LLMCouncilPromo out/llm-council-vertical.mp4 --width=1080 --height=1920",
+    "render:gif": "bunx remotion render src/index.tsx LLMCouncilPromo out/preview.gif --codec=gif",
+    "upgrade": "bunx remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "@remotion/transitions": "^4.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

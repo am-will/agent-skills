@@ -72,7 +72,14 @@ Each task must be:
 
 Provide plan to a subagent for review. Incorporate useful suggestions.
 
-### Phase 4: Save
+### Phase 4: Gotchas
+
+Identify potential issues and edge cases. Address them proactively. Where could something go wrong? What about the plan is ambiguous? 
+Is there a missing step, dependency, or pitfall?
+
+If any such gotchas are addressable, update the plan accordingly.
+
+### Phase 5: Save
 
 Generate filename from request:
 1. Extract key words
@@ -124,7 +131,7 @@ Examples:
 - [How to test]
 - [What to verify per sprint]
 
-## Potential Risks
+## Potential Risks & Gotchas
 - [What could go wrong]
 - [Mitigation strategies]
 

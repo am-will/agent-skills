@@ -10,6 +10,8 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@am-will/codexskills": "^0.1.1"
+    "@am-will/codexskills": "^0.1.1",
+    "@remotion/google-fonts": "^4.0.407",
+    "@remotion/transitions": "^4.0.407"
   }
 }

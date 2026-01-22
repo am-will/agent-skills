@@ -1,0 +1,33 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "@am-will/codexskills",
+      "dependencies": {
+        "@am-will/codexskills": "^0.1.1",
+        "@remotion/google-fonts": "^4.0.407",
+        "@remotion/transitions": "^4.0.407",
+      },
+    },
+  },
+  "packages": {
+    "@am-will/codexskills": ["@am-will/codexskills@0.1.1", "", { "bin": { "codexskills": "bin/codexskills.js" } }, "sha512-S5/TX/7C04FJztF04451rINgAvwvPeI4SndIsKpmIHKSZkDjpLH1LxOZ24QUcwvghd+6AeII/EC4zUC3qv4bsg=="],
+
+    "@remotion/google-fonts": ["@remotion/google-fonts@4.0.407", "", { "dependencies": { "remotion": "4.0.407" } }, "sha512-he91XWa7k8A76D0iVcE8B3fllG+OPvrcabGXX3qdSQjnkZcLLLQgfXEnTPzwAwaS/Dh6Ujo8bNlJrKINNZB4Vg=="],
+
+    "@remotion/paths": ["@remotion/paths@4.0.407", "", {}, "sha512-P1+N56Dj+XUjtCgIEax3joHlSKGGf8sUZx8qp/H7wNbhfhFnuhc0LIddCHJWMKnB4njx6+h92SxQpjNm9zmiyQ=="],
+
+    "@remotion/shapes": ["@remotion/shapes@4.0.407", "", { "dependencies": { "@remotion/paths": "4.0.407" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-uAY8TZIcZUaoZOze6d3NSqDRIViJUbWuPENS739OezavCQhO47D7IW7A08+ZexJdUdfa0Xszq8las9VXnlTfAw=="],
+
+    "@remotion/transitions": ["@remotion/transitions@4.0.407", "", { "dependencies": { "@remotion/paths": "4.0.407", "@remotion/shapes": "4.0.407", "remotion": "4.0.407" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-XnRoBM/IEjQ3BHjTlJS/b3o8uxq9CH/s8qAC9n1PWkhoWx4I1/JaUqFbkunc6LQIAPC7286up2Edtx2zAOP1rA=="],
+
+    "react": ["react@19.2.3", "", {}, "sha512-Ku/hhYbVjOQnXDZFv2+RibmLFGwFdeeKHFcOTlrt7xplBnya5OGn/hIRDsqDiSUcfORsDC7MPxwork8jBwsIWA=="],
+
+    "react-dom": ["react-dom@19.2.3", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.3" } }, "sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg=="],
+
+    "remotion": ["remotion@4.0.407", "", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-7N9t9Gg0WMZdnVaimn++YuWplBNuTbVmzfsurKt/Cmlgi2r3nZt0KbV7ozaxf3venUcILzAZD/v7sZJuR5Xb9w=="],
+
+    "scheduler": ["scheduler@0.27.0", "", {}, "sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q=="],
+  }
+}
