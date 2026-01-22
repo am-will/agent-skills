@@ -10,8 +10,7 @@ description: >
 # LLM Council Skill
 
 ## Quick start
-- Always check for an existing agents config file first (`$XDG_CONFIG_HOME/llm-council/agents.json` or `~/.config/llm-council/agents.json`). If none exists, stop and tell the user to run `./setup.sh` to configure agents.
-- Always refer to `~/.config/llm-council/agents.json` for model configuration. Never override it and never invent models or configurations.
+- Always check for an existing agents config file first (`$XDG_CONFIG_HOME/llm-council/agents.json` or `~/.config/llm-council/agents.json`). If none exists, tell the user to run `./setup.sh` to configure or update agents.
 - The orchestrator must always ask thorough intake questions first, then generates prompts so planners do **not** ask questions.
   - Even if the initial prompt is strong, ask at least a few clarifying questions about ambiguities, constraints, and success criteria.
 - Tell the user that answering intake questions is optional, but more detail improves the quality of the final plan.
@@ -32,7 +31,7 @@ description: >
 ## Agent configuration (task_spec)
 Use `agents.planners` to define any number of planning agents, and optionally `agents.judge` to override the judge.
 If `agents.judge` is omitted, the first planner config is reused as the judge.
-If `agents` is omitted in the task spec, the CLI must use `~/.config/llm-council/agents.json`. Do not make up or override models; if the file is missing, stop and direct the user to run `./setup.sh`.
+If `agents` is omitted in the task spec, the CLI will use the user config file when present, otherwise it falls back to the default council.
 
 Example with multiple OpenCode models:
 ```json

@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LLM Council</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kanita:wght@900&display=swap" rel="stylesheet">
     <style>
 :root {
   color-scheme: light;
@@ -18,7 +15,7 @@
   --shadow: #000000;
   --soft: rgba(0, 0, 0, 0.1);
   --radius: 0.75rem;
-  --display: 'Black Ops One', 'Impact', 'Haettenschweiler', 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+  --display: 'Impact', 'Haettenschweiler', 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
   --body: 'Franklin Gothic Medium', 'Trebuchet MS', 'Verdana', sans-serif;
   --mono: 'Courier New', monospace;
 }
@@ -63,19 +60,10 @@ body::before {
 }
 
 .brand-mark {
-  font-family: 'Black Ops One', system-ui, sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  line-height: 1.1;
-  color: var(--ink);
-  text-shadow:
-    4px 4px 0 var(--accent),
-    8px 8px 0 rgba(0,0,0,0.2);
-  position: relative;
-  transform: rotate(-1deg);
-  margin-bottom: 0.35rem;
 }
 
 .brand-meta,
@@ -162,11 +150,6 @@ body::before {
   letter-spacing: 0.04em;
 }
 
-.label-spaced {
-  display: block;
-  margin-bottom: 0.35rem;
-}
-
 .task-brief {
   margin: 0;
   font-size: 1.05rem;
@@ -187,9 +170,6 @@ body::before {
   flex-wrap: wrap;
 }
 
-.panel-header--judge {
-  margin-bottom: 0.35rem;
-}
 .panel-body {
   display: flex;
   flex-direction: column;
@@ -254,27 +234,12 @@ body::before {
   line-height: 1.45;
 }
 
-#plannerSummaryText {
+#plannerSummaryText,
+#judgeSummary {
   min-height: 360px;
   max-height: 460px;
   overflow: auto;
   padding: 1rem;
-}
-
-#judgeSummary,
-#finalPlanPreview {
-  min-height: 500px;
-  max-height: 660px;
-  overflow: auto;
-  padding: 1rem;
-}
-
-.panel-body--judge {
-  padding-bottom: 0.5rem;
-}
-
-#judgeSummary {
-  margin-bottom: 0.5rem;
 }
 
 .error-list {
@@ -303,10 +268,6 @@ textarea#refineContext {
 
 textarea#refineContext {
   min-height: 96px;
-}
-
-#finalPlanEditor {
-  min-height: 500px;
 }
 
 .action-row {
@@ -441,11 +402,11 @@ textarea#refineContext {
         </section>
 
         <section class="panel">
-          <div class="panel-header panel-header--judge">
-            <h2 class="label-spaced">Judge Output</h2>
+          <div class="panel-header">
+            <h2>Judge Output</h2>
             <span id="judgeStatus" class="panel-sub">—</span>
           </div>
-          <div class="panel-body panel-body--judge">
+          <div class="panel-body">
             <pre id="judgeSummary" class="content-block">—</pre>
             <ul id="judgeErrors" class="error-list"></ul>
           </div>
@@ -459,11 +420,11 @@ textarea#refineContext {
           <div class="panel-body">
             <div class="editor-grid">
               <div class="editor-pane">
-                <label class="label-spaced" for="finalPlanEditor">Editor</label>
+                <label for="finalPlanEditor">Editor</label>
                 <textarea id="finalPlanEditor" spellcheck="false"></textarea>
               </div>
               <div class="preview-pane" id="previewPane">
-                <label class="label-spaced">Preview</label>
+                <label>Preview</label>
                 <pre id="finalPlanPreview" class="content-block">—</pre>
               </div>
             </div>
@@ -475,7 +436,7 @@ textarea#refineContext {
                 <span id="saveStatus" class="status-text"></span>
               </div>
               <div class="action-group">
-                <label class="label-spaced" for="refineContext">Refine Notes</label>
+                <label for="refineContext">Refine Notes</label>
                 <div class="rerun-row">
                   <textarea id="refineContext" rows="3" placeholder="Describe what to refine in the plan"></textarea>
                   <button id="refineBtn" class="btn danger" type="button">Refine</button>

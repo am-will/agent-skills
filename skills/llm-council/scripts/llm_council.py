@@ -217,19 +217,17 @@ def _build_command_and_input(config: AgentConfig, prompt: str) -> Tuple[List[str
     if kind == "codex":
         model = config.model or CODEX_MODEL
         reasoning = config.reasoning_effort or CODEX_REASONING
-        skip_repo_flag = "--skip-git-repo-check"
         args = [
             "codex",
             "exec",
-            skip_repo_flag,
             "--json",
+            "--skip-git-repo-check",
             "-m",
             model,
             "-c",
             f"model_reasoning_effort={reasoning}",
         ]
-        extra_args = [item for item in config.extra_args if item != skip_repo_flag]
-        args.extend(extra_args)
+        args.extend(config.extra_args)
         args.append(prompt)
         return (
             args,
