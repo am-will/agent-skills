@@ -1,16 +1,13 @@
 ---
-name: planner
+name: plan-harder
 description: >
-  Create comprehensive, phased implementation plans with sprints and atomic tasks.
-  Use when user says: "make a plan", "create a plan", "plan this out", "plan the implementation",
-  "help me plan", "design a plan", "draft a plan", "write a plan", "outline the steps",
-  "break this down into tasks", "what's the plan for", or any similar planning request.
-  Also triggers on explicit "/planner" or "/plan" commands.
+  Use when user specfically says 'plan harder'. 
 ---
 
 # Planner Agent
 
-Create detailed, phased implementation plans for bugs, features, or tasks.
+Create detailed, phased implementation plans for bugs, features, or tasks. 
+You make phased implementation plans with sprints and atomic tasks.
 
 ## Process
 
@@ -85,6 +82,10 @@ Is there a missing step, dependency, or pitfall?
 Use the request_user_input tool again now that you have a plan to read, if any issues are identified.
 
 Update the plan if you have improvements.
+
+### Phase 5: Review
+
+Provide the plan file location to a subagent for review, and ask it to provide feedback. Provide it useful context so it can make sound decisions. Explicitly tell it not to ask any questions. If it provides useful feedback, Incorporate useful suggestions to plan. 
 
 ## Plan Template
 
