@@ -3,37 +3,52 @@
 
 # CodexSkills
 
-A collection of Codex/agent skills. Check the /skills/ folder for a library of skills (like the OpenAI Developer Documenation Skill or Codex Subagents Skill)
+A collection of Codex/agent skills for planning, documentation access, frontend development, and browser automation.
 
 ## Available skills
 
-- `codex-subagent`:
-  Spawn autonomous Codex subagents via background shell to offload context-heavy work (web research, codebase exploration, multi-step workflows). Uses full-auto mode by default with smart model selection (mini for pure search, inherit parent for multi-step tasks).
+### Agent Orchestration
+
+- `planner`:
+  Create comprehensive, phased implementation plans with sprints and atomic tasks. Use for planning implementations, breaking down features, or creating structured roadmaps.
+- `plan-harder`:
+  Enhanced planning variant for more detailed analysis and task breakdown.
+- `parallel-task`:
+  Execute plan files by launching multiple parallel subagents to complete tasks simultaneously. Requires an existing plan file from `planner`.
+- `llm-council`:
+  Multi-agent orchestration system for planning complex tasks. Spawns multiple AI planners (Claude, Codex, Gemini) to generate independent plans, then uses a judge agent to synthesize the best approach. Includes a real-time web UI for monitoring progress and refining plans interactively.
+
+### Documentation Access
+
 - `context7`:
   Fetch up-to-date library documentation via Context7 API.
 - `openai-docs-skill`:
   Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
+- `read-github`:
+  Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
+
+### Frontend & Design
+
 - `frontend-design`:
   Distinctive frontend design system guidance (imported from Anthropic).
 - `frontend-responsive-ui`:
   Responsive UI standards (imported from Anthropic).
+- `vercel-react-best-practices`:
+  React/Next.js performance guidance (imported from Vercel).
+
+### Browser Automation
+
 - `gemini-computer-use`:
   Gemini 2.5 Computer Use browser-control agent skill (Playwright + safety confirmation loop).
 - `agent-browser`:
   Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
-- `vercel-react-best-practices`:
-  React/Next.js performance guidance (imported from Vercel).
-- `read-github`:
-  Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
-- `llm-council`:
-  Multi-agent orchestration system for planning complex tasks. Spawns multiple AI planners (Claude, Codex, Gemini) to generate independent plans, then uses a judge agent to synthesize the best approach. Includes a real-time web UI for monitoring progress and refining      plans interactively.
 
 ## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
 
 ```bash
-npx @am-will/codexskills --user am-will/codex-skills/skills/codex-subagent
+npx @am-will/codexskills --user am-will/codex-skills/skills/planner
 ```
 
 Install all skills (or pick from the list):
@@ -74,9 +89,3 @@ codexskills --user am-will/codex-skills/skills
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 
 **Note on llm-council**: This skill requires API keys or Active Subscriptions for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
-
-**Note on Codex Subagents Skill**:
-
-You must turn on Background Terminal for subagents. In fact, turn on all of these features. They're useful.
-
-<img width="1290" height="437" alt="image" src="https://github.com/user-attachments/assets/ca03b1f8-91ac-45bf-a386-ec8ede5dd6f3" />
