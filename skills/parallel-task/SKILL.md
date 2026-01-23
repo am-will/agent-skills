@@ -2,17 +2,12 @@
 name: parallel-task
 description: >
   Execute plan files by launching multiple parallel subagents to complete tasks simultaneously.
-  Use when user says: "launch a swarm", "launch parallel subagents", "run parallel agents",
-  "execute this plan in parallel", "swarm on this", "parallel execute", "run multiple agents",
-  "launch agents on this plan", "execute the plan", "run the plan with agents", or similar.
-  DO NOT use for simple 1-2 subagent launches - this is for orchestrating 3+ parallel tasks
-  from a structured plan file with sprints/phases and multiple tasks.
-  Also triggers on explicit "/parallel-task" or "/swarm" commands.
+  Triggers on explicit "/parallel-task" commands.
 ---
 
 # Parallel Task Executor
 
-Parse plan files and delegate tasks to parallel subagents.
+Use Orchestration Mode. Parse plan files and delegate tasks to parallel subagents.
 
 ## Process
 
@@ -39,7 +34,7 @@ For each task, launch subagent with:
 - **description**: "Implement task [ID]: [name]"
 - **prompt**: Use template below
 
-Launch in parallel when possible. Note if sequential execution required.
+If there are multiple unblocked tasks, launch multiple subagents in parallel.
 
 ### Task Prompt Template
 
@@ -66,7 +61,7 @@ Validation:
 [Tests or verification from plan]
 
 ## Instructions
-1. Examine relevant files
+1. Examine and explore relevant files & dependencies. Ensure ambiguities are cleared up.
 2. Implement changes for all acceptance criteria
 3. Keep work **atomic and committable**
 4. For each file: read first, edit carefully, preserve formatting
