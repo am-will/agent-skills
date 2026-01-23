@@ -61,7 +61,7 @@ Validation:
 [Tests or verification from plan]
 
 ## Instructions
-1. Examine and explore relevant files & dependencies. Ensure ambiguities are cleared up.
+1. Examine and explore the plan, all relevant files & dependencies. Ensure ambiguities are cleared up.
 2. Implement changes for all acceptance criteria
 3. Keep work **atomic and committable**
 4. For each file: read first, edit carefully, preserve formatting
@@ -82,11 +82,7 @@ Validation:
 
 After subagents complete:
 1. Collect results
-2. Report status:
-   - Completed tasks
-   - Tasks with issues/blockers
-   - Overall sprint status
-3. **ALWAYS mark completed tasks** and update with:
+2. **ALWAYS mark completed tasks** and update with:
    - Concise work log
    - Files modified/created
    - Errors or gotchas encountered
@@ -96,6 +92,16 @@ After subagents complete:
 Continue launching unblocked tasks in parallel until plan is done.
 
 Run all available unblocked tasks, wait for completion, log work, then launch next batch. Repeat until **entire plan** is complete.
+
+## Step 6: Validate
+
+After completing all tasks, validate the plan's success by checking the final state against the original plan. Perform available tests and ensure success. If there are any issues, address them before marking the plan as complete.
+
+After validation, provide a summary of:
+- Files modified/created
+- Changes made
+- How criteria are satisfied
+- Validation performed or deferred
 
 ## Error Handling
 
