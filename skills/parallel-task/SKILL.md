@@ -89,9 +89,13 @@ After subagents complete:
 
 ### Step 5: Repeat
 
-Continue launching unblocked tasks in parallel until plan is done.
+Now, pause and read the whole plan again to see what new tasks are unblocked.
 
-Run all available unblocked tasks, wait for completion, log work, then launch next batch. Repeat until **entire plan** is complete.
+Start back at step 3. Continue launching agents on unblocked tasks in parallel.
+
+Repeat this loop until the plan is done.
+
+Do not stop until the plan is fully completed or you encounter a blocker.
 
 ## Step 6: Validate
 
