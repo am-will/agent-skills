@@ -24,19 +24,33 @@ Create detailed, phased implementation plans for bugs, features, or tasks.
 
 2. **Analyze the request:**
    - Core requirements
-   - Challenges and edge cases
+   - Challenges & edge cases
    - Security/performance/UX considerations
 
 ### Phase 1: Clarify Requirements
 
-Use request_user_input to resolve ambiguities. Ask up to 10 targeted questions:
-- Scope boundaries (in/out of scope)
-- Technology/architectural constraints
-- Priorities (critical vs nice-to-have)
-- Edge case handling
-- Success criteria
+Before doing ANY documentation search: clarify requirements with user.
+This will narrow and aid you in finding the right docs.
 
-### Phase 2: Create Plan
+Think of 5-10 questions that will help you generate the best plan possible.
+
+Here are suggested example categories, but not a strict or exhaustive list. You may ask anything helpful. Use best judgement & prioritize ambiguity and risk reduction:
+1. Goals & success criteria
+2. Scope & non‑goals
+3. Users & core workflows
+4. Platforms & environments
+5. Tech constraints
+6. Data & integrations
+7. Auth & permissions
+8. Performance & reliability
+9. Testing & validation
+10. Ask any helpful question
+
+### Phase 2: Retrieve Documentation
+
+When the plan involves any external library, API, framework, or service, use the Context7 skill to fetch the latest official docs before drafting tasks. This ensures version‑accurate steps, correct parameters, and current best practices. If no external dependencies apply, skip this phase.
+
+### Phase 3: Create Plan
 
 #### Structure
 - **Overview**: Brief summary and approach
@@ -69,22 +83,20 @@ Each task must be:
 Save the file
 
 Generate filename from request:
-1. Extract key words
+1. Extract keywords
 2. Convert to kebab-case
 3. Add `-plan.md` suffix
 
 Examples:
 - "fix xyz bug" → `xyz-bug-plan.md`
-- "implement google auth" → `google-auth-plan.md`
 
 ### Phase 4: Gotchas
 
-AFTER it is saved. Identify potential issues and edge cases in the plan. Address them proactively. Where could something go wrong? What about the plan is ambiguous? 
-Is there a missing step, dependency, or pitfall?
+AFTER it is saved. Identify potential issues & edge cases in plan. Address proactively. Where could smth go wrong? What about the plan is ambiguous? Missing step, dependency, or pitfall?
 
-Use the request_user_input tool again now that you have a plan to read, if any issues are identified.
+If any gotchas found, stop & ask up to 3 more questions. (either w/ request_user_input or directly)
 
-Update the plan if you have improvements.
+Refine the plan if any additional useful info is provided.
 
 ## Plan Template
 
