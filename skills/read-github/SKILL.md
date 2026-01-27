@@ -8,7 +8,6 @@ description: |
   - User mentions a specific repo in owner/repo format
   - User asks "what does this repo do?", "read the docs for X repo", or similar
   - User wants to search code or docs within a repo
-  - User references a GitHub repo & needs to understand structure, API, usage
 ---
 
 # Read GitHub Docs
