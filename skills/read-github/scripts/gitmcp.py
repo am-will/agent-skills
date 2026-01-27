@@ -16,10 +16,17 @@ def convert_github_to_gitmcp(url_or_path: str) -> str:
     """Convert a GitHub URL or owner/repo path to gitmcp.io URL."""
     # Handle full GitHub URLs
     if "github.com" in url_or_path:
-        return url_or_path.replace("github.com", "gitmcp.io")
+        url = url_or_path.replace("github.com", "gitmcp.io")
+        # Strip /tree/..., /blob/..., /commits/..., etc. - gitmcp only needs owner/repo
+        url = re.sub(r'/(tree|blob|commits|releases|issues|pull|actions|wiki|settings)/.*$', '', url)
+        return url
 
-    # Handle owner/repo format
+    # Handle owner/repo format (possibly with extra path segments)
     if "/" in url_or_path and not url_or_path.startswith("http"):
+        # Extract just owner/repo, strip any extra paths
+        parts = url_or_path.split('/')
+        if len(parts) >= 2:
+            return f"https://gitmcp.io/{parts[0]}/{parts[1]}"
         return f"https://gitmcp.io/{url_or_path}"
 
     return url_or_path
@@ -27,12 +34,19 @@ def convert_github_to_gitmcp(url_or_path: str) -> str:
 
 def get_repo_name_from_url(url: str) -> str:
     """Extract repo name from URL and convert to underscore format for tool names."""
-    # Extract the repo name (last part of the path)
-    match = re.search(r'/([^/]+)/?$', url.rstrip('/'))
+    # Extract owner/repo from URL pattern like https://gitmcp.io/owner/repo
+    match = re.search(r'gitmcp\.io/([^/]+)/([^/]+)', url)
     if match:
-        repo_name = match.group(1)
+        repo_name = match.group(2)
         # Convert dashes to underscores for tool names
         return repo_name.replace('-', '_')
+
+    # Fallback: extract from owner/repo format
+    match = re.search(r'^([^/]+)/([^/]+)', url)
+    if match:
+        repo_name = match.group(2)
+        return repo_name.replace('-', '_')
+
     return ""
 
 
