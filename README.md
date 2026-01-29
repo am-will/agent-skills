@@ -43,43 +43,43 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
 - `agent-browser`:
   Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 
-## Install with skills CLI (recommended)
+## Install with codexskills (recommended)
 
 Install a single skill into your user scope (installs globally for all projects):
 
 ```bash
-npx skills add am-will/codex-skills/skills/planner
+npx @am-will/codexskills --user am-will/codex-skills/skills/planner
 ```
 
 Install all skills (or pick from the list):
 
 ```bash
-npx skills add am-will/codex-skills/skills
+npx @am-will/codexskills --user am-will/codex-skills/skills
 ```
 
 Install into a project (install to just one specific project):
 
 ```bash
-npx skills add am-will/codex-skills/skills /path/to/your/project
+npx @am-will/codexskills --project am-will/codex-skills/skills /path/to/your/project
 ```
 
-Install skills from other GitHub repositories:
+Install skills from other Github repositories:
 
-All of the above commands work for any GitHub Skill repository:
+All of the above commands work for any Github Skill repository:
 
 ```bash
-npx skills add numman-ali/n-skills/skills /path/to/your/project
+npx @am-will/codexskills --project https://github.com/numman-ali/n-skills/tree/main/skills /path/to/your/project
 ```
 
-Install globally and use `skills` directly:
+Install globally and use `codexskills` directly:
 
 ```bash
-npm install -g @am-will/skills
-skills add am-will/codex-skills/skills
+npm install -g @am-will/codexskills
+codexskills --user am-will/codex-skills/skills
 ```
 
 **Notes:**
-- When multiple skills are found, skills prompts you to choose (space to toggle, enter to confirm).
+- When multiple skills are found, codexskills prompts you to choose (space to toggle, enter to confirm).
 - When you post a path to just one skill, it will not prompt you "are you sure?"
 
 **Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
