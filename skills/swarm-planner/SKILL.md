@@ -9,38 +9,44 @@ metadata:
 
 # Swarm-Ready Planner
 
-Create implementation plans with explicit task dependencies optimized for parallel agent execution.
+Create implementation plans with explicit task dependencies optimized for parallel agent execution. This skill can be ran inside or outside of Plan Mode. 
 
 ## Core Principles
 
 1. **Explore Codebase**: Investigate architecture, patterns, existing implementations, dependencies, and frameworks in use.
 2. **Fresh Documentation First**: Use Context7 for ANY external library, framework, or API before planning tasks
-3. **Explicit Dependencies**: Every task declares what it depends on, enabling maximum parallelization
-4. **Atomic Tasks**: Each task is independently executable by a single agent
-5. **Review Before Yield**: A subagent reviews the plan for gaps before finalizing
+3. **Ask Questions**: Clarify ambiguities and seek clarification on scope, constraints, or priorities throughout the planning process. At any time.
+4. **Explicit Dependencies**: Every task declares what it depends on, enabling maximum parallelization
+5. **Atomic Tasks**: Each task is independently executable by a single agent
+6. **Review Before Yield**: A subagent reviews the plan for gaps before finalizing
 
 ## Process
 
-### 1. Research & Documentation
+### 1. Research
 
 **Codebase investigation:**
 - Architecture, patterns, existing implementations
 - Dependencies and frameworks in use
 
+NOTE: If the architecture is unclear, stop and request user input before moving on.
+
+### 2. Documentation
+
 **Documentation retrieval (REQUIRED for external dependencies):**
 
-Use Context7 skill to fetch current docs for any libraries/frameworks or APIs that are or will be used in project
+Use Context7 skill or MCP to fetch current docs for any libraries/frameworks or APIs that are or will be used in project
 
 This ensures version-accurate APIs, correct parameters, and current best practices.
 
-### 2. Clarify Ambiguities
+### 3. Clarify Ambiguities
 
 When anything is unclear or could reasonably be done multiple ways:
 - Stop and ask clarifying questions immediately
 - Do not make assumptions about scope, constraints, or priorities
 - Questions should reduce risk and eliminate ambiguity
+- Use request_user_input or AskUserQuestion tool if available. 
 
-### 3. Create Dependency-Aware Plan
+### 4. Create Dependency-Aware Plan
 
 Structure the plan with explicit task dependencies using this format:
 
@@ -96,7 +102,6 @@ If the subagent provides actionable feedback, revise the plan before yielding.
 # Plan: [Task Name]
 
 **Generated**: [Date]
-**Complexity**: [Low/Medium/High]
 
 ## Overview
 [Summary of task and approach]
@@ -158,3 +163,4 @@ T2 ──┴── T4 ──┘
 - Root tasks (no dependencies) can be executed in parallel immediately
 - Do NOT implement - only create the plan
 - Always use Context7 for external dependencies before finalizing tasks
+- Always ask questions where ambiguity exists
