@@ -28,7 +28,10 @@ Create implementation plans with explicit task dependencies optimized for parall
 - Architecture, patterns, existing implementations
 - Dependencies and frameworks in use
 
-NOTE: If the architecture is unclear, stop and request user input before moving on.
+### 1a. Optional: Stop to Clarification Questions
+
+- If the architecture is unclear or missing STOP AND YIELD to the user, and request user input (AskUserQuestions) before moving on. Always offer recommendations for clarification questions.
+- If architecture is present, skip 1a and move onto next step. 
 
 ### 2. Documentation
 
@@ -38,12 +41,13 @@ Use Context7 skill or MCP to fetch current docs for any libraries/frameworks or 
 
 This ensures version-accurate APIs, correct parameters, and current best practices.
 
-### 3. Clarify Ambiguities
+### 3. STOP and Request User Input
 
 When anything is unclear or could reasonably be done multiple ways:
 - Stop and ask clarifying questions immediately
 - Do not make assumptions about scope, constraints, or priorities
 - Questions should reduce risk and eliminate ambiguity
+- Always offer recommendations for clarification questions.
 - Use request_user_input or AskUserQuestion tool if available. 
 
 ### 4. Create Dependency-Aware Plan
@@ -125,18 +129,27 @@ T2 ──┴── T4 ──┘
 - **location**: [file paths]
 - **description**: [what to do]
 - **validation**: [how to verify]
+- **status**: Not Completed
+- **log**: [leave empty, to be filled out later]
+- **files edited/created**: [leave empty, to be filled out later]
 
 ### T2: [Name]
 - **depends_on**: []
 - **location**: [file paths]
 - **description**: [what to do]
 - **validation**: [how to verify]
+- **status**: Not Completed
+- **log**: [leave empty, to be filled out later]
+- **files edited/created**: [leave empty, to be filled out later]
 
 ### T3: [Name]
 - **depends_on**: [T1]
 - **location**: [file paths]
 - **description**: [what to do]
 - **validation**: [how to verify]
+- **status**: Not Completed
+- **log**: [leave empty, to be filled out later]
+- **files edited/created**: [leave empty, to be filled out later]
 
 [... continue for all tasks ...]
 

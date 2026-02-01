@@ -61,18 +61,19 @@ Validation:
 [Tests or verification from plan]
 
 ## Instructions
-1. Examine working plan and any relevant or dependentfiles
+1. Examine working plan and any relevant or dependent files
 2. Implement changes for all acceptance criteria
 3. Keep work **atomic and committable**
 4. For each file: read first, edit carefully, preserve formatting
 5. Run validation if feasible
-6. **ALWAYS mark completed tasks as soon as they are completed!** and update with:
+6. **ALWAYS mark completed tasks IN THE *-plan.md file AS SOON AS YOU COMPLETE IT!** and update with:
     - Concise work log
     - Files modified/created
     - Errors or gotchas encountered
 7. Commit your work
    - Note: There are other agents working in parallel to you, so only stage and commit the files you worked on. NEVER PUSH. ONLY COMMIT.
-8. Return summary of:
+8. Double Check that you updated the *-plan.md file and committed your work before yielding
+9. Return summary of:
    - Files modified/created
    - Changes made
    - How criteria are satisfied
@@ -93,6 +94,7 @@ After a wave of subagents complete their work:
 2. Validate the results against the expected outcomes.
 3. If the task is truly completed correctly, ENSURE THAT TASK WAS MARKED COMPLETE WITH LOGS.
 4. If a task was not successful, have the agent retry or escalate the issue.
+5. Ensure that that wave of work has been committed to github before moving on to the next wave of tasks.
 
 ### Step 5: Repeat
 
