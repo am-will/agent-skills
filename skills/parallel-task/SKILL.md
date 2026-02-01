@@ -70,7 +70,9 @@ Validation:
     - Concise work log
     - Files modified/created
     - Errors or gotchas encountered
-7. Return summary of:
+7. Commit your work
+   - Note: There are other agents working in parallel to you, so only stage and commit the files you worked on. NEVER PUSH. ONLY COMMIT.
+8. Return summary of:
    - Files modified/created
    - Changes made
    - How criteria are satisfied
