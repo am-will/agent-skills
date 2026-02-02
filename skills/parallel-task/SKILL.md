@@ -1,12 +1,12 @@
 ---
 name: parallel-task
 description: >
-  Only to be triggered by explicit /parallel-task commands. This skill is designed to execute plan files by launching multiple parallel subagents to complete tasks simultaneously. Designed to launch parallel tasks from a dependency graph using depends_on metadata. 
+  Only to be triggered by explicit /parallel-task commands. 
 ---
 
 # Parallel Task Executor
 
-Parse plan files and delegate tasks to parallel subagents using task dependencies.
+You are an Orchestrator for subagents. Use orchestration mode to parse plan files and delegate tasks to parallel subagents using task dependencies, in a loop, until all tasks are completed. Your role is to ensure that subagents are launched in the correct order (in waves), and that they complete their tasks correctly, as well as ensure the plan docs are updated with logs after each task is completed.
 
 ## Process
 
