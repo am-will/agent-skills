@@ -43,44 +43,45 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
 - `agent-browser`:
   Fast Rust-based headless browser automation CLI from Vercel Labs with snapshot/act pattern for AI agents.
 
-## Install with codexskills (recommended)
+## Installation
 
-Install a single skill into your user scope (installs globally for all projects):
-
-```bash
-npx @am-will/codexskills --user am-will/codex-skills/skills/planner
-```
-
-Install all skills (or pick from the list):
+Install skills using the [skills.sh](https://skills.sh) CLI:
 
 ```bash
-npx @am-will/codexskills --user am-will/codex-skills/skills
+# List available skills before installing
+npx skills add am-will/codex-skills --list
+
+# Install specific skills to user scope (global)
+npx skills add am-will/codex-skills --skill planner --skill context7 -g
+
+# Install all skills interactively (prompts for selection)
+npx skills add am-will/codex-skills -g
+
+# Install to specific agents
+npx skills add am-will/codex-skills --skill planner -a claude-code -a codex -g
+
+# Install to current project (instead of global)
+npx skills add am-will/codex-skills --skill planner
+
+# Non-interactive install (skip prompts)
+npx skills add am-will/codex-skills --skill planner -g -y
 ```
 
-Install into a project (install to just one specific project):
+**CLI Options:**
+| Flag | Purpose |
+|------|---------|
+| `-g, --global` | Install to user directory (global for all projects) |
+| `-a, --agent <agents...>` | Target specific agents (`claude-code`, `codex`, etc.) |
+| `-s, --skill <skills...>` | Install specific skills by name |
+| `-l, --list` | List available skills without installing |
+| `-y, --yes` | Skip confirmation prompts |
 
+**Other commands:**
 ```bash
-npx @am-will/codexskills --project am-will/codex-skills/skills /path/to/your/project
+npx skills list          # Show installed skills
+npx skills remove <name> # Uninstall a skill
+npx skills update        # Update all installed skills
 ```
-
-Install skills from other Github repositories:
-
-All of the above commands work for any Github Skill repository:
-
-```bash
-npx @am-will/codexskills --project https://github.com/numman-ali/n-skills/tree/main/skills /path/to/your/project
-```
-
-Install globally and use `codexskills` directly:
-
-```bash
-npm install -g @am-will/codexskills
-codexskills --user am-will/codex-skills/skills
-```
-
-**Notes:**
-- When multiple skills are found, codexskills prompts you to choose (space to toggle, enter to confirm).
-- When you post a path to just one skill, it will not prompt you "are you sure?"
 
 **Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
 

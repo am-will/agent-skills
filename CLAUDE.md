@@ -72,19 +72,25 @@ Use the skill-creator workflow (available via `/skill-creator` or from `~/.claud
 
 ### Installing Skills
 
-**To Codex (`~/.codex/skills/`):**
+**Via [skills.sh](https://skills.sh) CLI (recommended):**
 ```bash
+# Install specific skills globally
+npx skills add am-will/codex-skills --skill <skill-name> -g
+
+# Install to specific agents
+npx skills add am-will/codex-skills --skill <skill-name> -a claude-code -g
+
+# List available skills
+npx skills add am-will/codex-skills --list
+```
+
+**Manual installation:**
+```bash
+# To Codex
 cp -r ./skills/<skill-name> ~/.codex/skills/
-```
 
-**To Claude Code (`~/.claude/skills/`):**
-```bash
+# To Claude Code
 cp -r ./skills/<skill-name> ~/.claude/skills/
-```
-
-**Via codexskills CLI:**
-```bash
-npx @am-will/codexskills --user am-will/codex-skills/skills/<skill-name>
 ```
 
 ## Key Patterns
@@ -110,6 +116,10 @@ Example: `llm-council` has `references/rubric.md` and `references/templates/` th
 
 ## Distribution
 
-Skills are packaged as `.skill` files (zip archives with `.skill` extension) containing the skill directory structure. The packaging script validates before creating the archive.
+Skills follow the [Agent Skills standard](https://skills.sh) and can be installed via the skills.sh CLI:
 
-**Publishing to npm**: This repo publishes `@am-will/codexskills` which includes a CLI installer that can fetch skills from GitHub repos and install them to user or project scope.
+```bash
+npx skills add am-will/codex-skills --skill <skill-name> -g
+```
+
+Skills are also packaged as `.skill` files (zip archives with `.skill` extension) containing the skill directory structure for manual distribution.
