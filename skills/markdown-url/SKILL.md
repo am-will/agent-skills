@@ -31,11 +31,42 @@ Whenever you need to visit a website URL, you must:
 When you would normally open a website to read it:
 
 1. Produce the rewritten `markdown.new` URL.
-2. Visit the rewritten URL (not the original).
+2. Visit the rewritten URL first (not the original), but only when it is likely to work (see Policy below).
 3. Extract the page content from the Markdown view (the rendered Markdown and/or the raw Markdown).
 4. Use that extracted Markdown as the source for summaries, quotes, checklists, or copy/pasteable notes.
 
 If the `markdown.new` view fails to load or breaks critical functionality, fall back to the original URL for browsing, but still prefer `markdown.new` for any content extraction if possible.
+
+## Policy: When To Use markdown.new (Required)
+
+Do NOT route every site through `markdown.new`. Use it primarily for "read-only" pages where you want clean, extractable text:
+
+- Documentation pages
+- Blog posts / announcements / changelogs
+- GitHub issues/PR discussions (when you just need readable text)
+- Articles and guides
+
+Skip `markdown.new` and go straight to the original URL when the destination is likely to be blocked or requires the original site behavior:
+
+- Login, OAuth, checkout, payment, or any authenticated workflow
+- Sites that gate content behind JS apps, CAPTCHAs, bot detection, or paywalls
+- File uploads, forms, editors, dashboards, interactive widgets
+- Anything where cookies/session state must be preserved
+
+### Block/Failure Signals (Treat As Blocked)
+
+If you try `markdown.new` and see any of the below, stop retrying and fall back to the original URL:
+
+- HTTP `401/403/429`, "Access denied", "Forbidden", "rate limited"
+- CAPTCHA / "verify you are human"
+- Empty/partial content that clearly does not match the page
+- Redirect loops or repeated navigation failures
+
+### Fallback Behavior
+
+1. Attempt `markdown.new` once when appropriate.
+2. On block/failure, immediately switch to the original URL for browsing.
+3. If you still need extractable text, try to extract from the original page (reader mode / copy text) and clearly note that `markdown.new` was blocked.
 
 ## Notes / Exceptions
 
