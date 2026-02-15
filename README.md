@@ -24,6 +24,8 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
   Fetch up-to-date library documentation via Context7 API.
 - `openai-docs-skill`:
   Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
+- `markdown-url`:
+  Prefix any website you need to visit with `https://markdown.new/` for a clean, Markdown-friendly view.
 - `read-github`:
   Read and search GitHub repository documentation via gitmcp.io MCP service. Converts `github.com/owner/repo` URLs to `gitmcp.io/owner/repo` for LLM-friendly access to repos.
 
