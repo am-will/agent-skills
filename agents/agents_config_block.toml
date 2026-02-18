@@ -1,5 +1,5 @@
 # ============================================================================
-# CODEX MULTI-AGENT CONFIGURATION — 25 Custom Roles
+# CODEX MULTI-AGENT CONFIGURATION — 26 Custom Roles
 # ============================================================================
 # Paste this block into your ~/.codex/config.toml
 # Each agent has a matching config overlay at ~/.codex/agents/<name>.toml
@@ -148,42 +148,49 @@ config_file = "agents/sparky.toml"
 description = "Use for executing implementation tasks from a structured plan."
 
 # ---------------------------------------------------------------------------
-# 20. WORKER_XHIGH — Generic worker (codex, xhigh reasoning)
+# 20. GIT_OPS — Complex git operations, rebases, and conflict resolution
+# ---------------------------------------------------------------------------
+[agents.git_ops]
+config_file = "agents/git_ops.toml"
+description = "Use for complex git operations like rebases, cherry-picks, and conflict resolution."
+
+# ---------------------------------------------------------------------------
+# 21. WORKER_XHIGH — Generic worker (codex, xhigh reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_xhigh]
 config_file = "agents/worker_xhigh.toml"
 description = "Generic worker agent. gpt-5.3-codex with xhigh reasoning effort."
 
 # ---------------------------------------------------------------------------
-# 21. WORKER_HIGH — Generic worker (codex, high reasoning)
+# 22. WORKER_HIGH — Generic worker (codex, high reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_high]
 config_file = "agents/worker_high.toml"
 description = "Generic worker agent. gpt-5.3-codex with high reasoning effort."
 
 # ---------------------------------------------------------------------------
-# 22. WORKER_MEDIUM — Generic worker (codex, medium reasoning)
+# 23. WORKER_MEDIUM — Generic worker (codex, medium reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_medium]
 config_file = "agents/worker_medium.toml"
 description = "Generic worker agent. gpt-5.3-codex with medium reasoning effort."
 
 # ---------------------------------------------------------------------------
-# 23. WORKER_MINI — Generic worker (codex-mini, medium reasoning)
+# 24. WORKER_MINI — Generic worker (codex-mini, medium reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_mini]
 config_file = "agents/worker_mini.toml"
 description = "Generic worker agent. gpt-5.1-codex-mini with medium reasoning effort."
 
 # ---------------------------------------------------------------------------
-# 24. WORKER_SPARK_HIGH — Generic worker (codex-spark, high reasoning)
+# 25. WORKER_SPARK_HIGH — Generic worker (codex-spark, high reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_spark_high]
 config_file = "agents/worker_spark_high.toml"
 description = "Generic worker agent. gpt-5.3-codex-spark with high reasoning effort."
 
 # ---------------------------------------------------------------------------
-# 25. WORKER_SPARK_XHIGH — Generic worker (codex-spark, xhigh reasoning)
+# 26. WORKER_SPARK_XHIGH — Generic worker (codex-spark, xhigh reasoning)
 # ---------------------------------------------------------------------------
 [agents.worker_spark_xhigh]
 config_file = "agents/worker_spark_xhigh.toml"
