@@ -15,23 +15,11 @@ description: |
 
 Retrieve current library documentation via Context7 API.
 
-## Authentication
+IMPORTANT: `CONTEXT7_API_KEY` IS STORED IN THE .env FILE IN THE SKILL FOLDER THAT THE CONTEXT7 SKILL IS INSTALLED IN. SEARCH FOR IT THERE. .env FILES ARE HIDDEN FILES. 
 
-This skill requires a Context7 API key in `CONTEXT7_API_KEY`.
-
-Recommended setup options:
-1) Export it in your shell profile (global):
-
-```bash
-export CONTEXT7_API_KEY="your-context7-key"
-```
-
-2) Use a local `.env` file (per-repo):
-
-```bash
-cp skills/context7/.env.example .env
-set -a; source .env; set +a
-```
+Example: 
+~/.agents/skills/context7/.env
+~/.claude/skills/context7/.env
 
 ## Workflow
 

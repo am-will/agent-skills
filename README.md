@@ -92,3 +92,9 @@ npx skills update        # Update all installed skills
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 
 **Note on llm-council**: This skill requires API keys or Active Subscriptions for multiple providers (Claude/Anthropic, OpenAI for Codex, Google for Gemini). Run `./setup.sh` in the skill directory to configure. Includes a real-time web UI that auto-launches during planning sessions.
+
+---
+
+### Custom Multi-Agents for Codex
+
+The `agents/` directory contains custom multi-agent configurations for Codex. These TOML-based agent definitions provide specialized roles (architect, frontend, backend, security, etc.) and worker tiers for parallel task execution. Use them with Codex to spin up purpose-built agents tailored to your workflow.

@@ -37,7 +37,7 @@ Create implementation plans with explicit task dependencies optimized for parall
 
 **Documentation retrieval (REQUIRED for external dependencies):**
 
-Use Context7 skill or MCP to fetch current docs for any libraries/frameworks or APIs that are or will be used in project
+Use Context7 skill or MCP to fetch current docs for any libraries/frameworks or APIs that are or will be used in project. If Context7 is not available, use web search.
 
 This ensures version-accurate APIs, correct parameters, and current best practices.
 

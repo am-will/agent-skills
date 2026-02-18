@@ -89,7 +89,7 @@ Ensure that the agent marked its task complete before moving on to the next task
 
 ### Step 4: Check and Validate.
 
-After a wave of subagents complete their work:
+After subagents complete their work:
 1. Inspect their outputs for correctness and completeness.
 2. Validate the results against the expected outcomes.
 3. If the task is truly completed correctly, ENSURE THAT TASK WAS MARKED COMPLETE WITH LOGS.
@@ -111,6 +111,7 @@ After a wave of subagents complete their work:
 ## Example Usage
 
 ```
+'Implement the plan using parallel task skill'
 /parallel-task plan.md
 /parallel-task ./plans/auth-plan.md T1 T2 T4
 /parallel-task user-profile-plan.md --tasks T3 T7
