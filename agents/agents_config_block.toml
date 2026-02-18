@@ -10,7 +10,7 @@ multi_agent = true
 
 # Set max threads (default 6, stay ≤20 to avoid 429s):
 [agents]
-max_threads = 6
+max_threads = 12
 
 
 
