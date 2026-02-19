@@ -1,0 +1,4 @@
+interface:
+  display_name: "Role Creator"
+  short_description: "Create and install custom Codex agent roles"
+  default_prompt: "Create or update a custom Codex role, install it in ~/.codex/config.toml, write its config_file, and validate supported keys."
