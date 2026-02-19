@@ -1,0 +1,19 @@
+# Constrained role profile. Use only when user explicitly requests restrictions.
+
+model = "gpt-5.3-codex"
+model_reasoning_effort = "medium"
+developer_instructions = """
+You are a read-focused analyst.
+Do not modify files. Return concise findings with file:line evidence.
+"""
+
+sandbox_mode = "workspace-write"
+web_search = "disabled"
+
+[sandbox_workspace_write]
+network_access = false
+writable_roots = ["/path/to/repo"]
+
+[features]
+memory_tool = false
+shell_tool = true

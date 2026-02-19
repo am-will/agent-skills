@@ -9,7 +9,6 @@ Usage:
 Options:
   --config PATH          Target config.toml (default: ~/.codex/config.toml)
   --update-existing      Allow updating an existing [agents.<role>] definition
-  --no-backup            Skip writing a .bak backup file
   --disable-multi-agent  Do not force features.multi_agent=true
   -h, --help             Show this help
 USAGE
@@ -21,7 +20,6 @@ role_description=""
 role_config_file=""
 set_multi_agent="true"
 update_existing="false"
-write_backup="true"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -35,8 +33,6 @@ while [[ $# -gt 0 ]]; do
       role_config_file="$2"; shift 2 ;;
     --update-existing)
       update_existing="true"; shift ;;
-    --no-backup)
-      write_backup="false"; shift ;;
     --disable-multi-agent)
       set_multi_agent="false"; shift ;;
     -h|--help)
@@ -72,9 +68,8 @@ if [[ "$set_multi_agent" == "true" ]]; then
   expr+=' | .features.multi_agent = true'
 fi
 
-if [[ "$write_backup" == "true" ]]; then
-  cp "$config_path" "${config_path}.bak"
-fi
+backup_path="${config_path}.bak.$(date +%Y%m%d%H%M%S)"
+cp "$config_path" "$backup_path"
 
 tmp_file="$(mktemp)"
 tomlq -t \
@@ -88,3 +83,4 @@ mv "$tmp_file" "$config_path"
 
 echo "Installed role '$role_name' in $config_path"
 echo "Role config file: $role_config_file"
+echo "Backup created at: $backup_path"

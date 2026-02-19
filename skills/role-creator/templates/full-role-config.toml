@@ -1,0 +1,36 @@
+# Full-surface example. Demonstrates advanced knobs.
+# Do not apply wholesale unless the user asks for each category.
+
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+model_verbosity = "high"
+personality = "pragmatic"
+developer_instructions = """
+You are a senior Product Analyst focused on turning ambiguous goals into
+executable requirements and acceptance criteria.
+"""
+
+sandbox_mode = "workspace-write"
+web_search = "cached"
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = ["/path/to/repo"]
+
+[features]
+memory_tool = false
+shell_tool = true
+
+[mcp_servers.linear]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-linear"]
+env_vars = ["LINEAR_API_KEY"]
+enabled = true
+required = false
+
+[apps.notion]
+enabled = true
+
+[apps.monday]
+enabled = false

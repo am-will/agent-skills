@@ -1,0 +1,9 @@
+# Minimal role config (recommended default).
+# Omitted keys inherit from parent config.
+
+model = "gpt-5.3-codex"
+model_reasoning_effort = "medium"
+developer_instructions = """
+You are a focused implementation assistant.
+Work only in requested files, validate changes, and report exact evidence.
+"""

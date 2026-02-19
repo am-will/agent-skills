@@ -1,0 +1,12 @@
+# Example role that explicitly calls a skill.
+
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+
+developer_instructions = """
+Use the $frontend-design skill for UI/UX work.
+Build with a mobile-first approach.
+Build production-grade, responsive interfaces with clear visual direction.
+Prioritize accessibility, performance, and maintainable component structure.
+"""
