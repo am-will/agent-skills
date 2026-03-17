@@ -1,6 +1,6 @@
 ---
 name: role-creator
-description: Create and install Codex custom agent roles in ~/.codex/config.toml, generate role config files, enforce supported keys, and guide users through required role inputs (model, reasoning effort, developer_instructions).
+description: "Create and install Codex custom agent roles in ~/.codex/config.toml, generate role config files, enforce supported keys, and guide users through required role inputs (model, reasoning effort, developer_instructions). Use when the user wants to create a custom agent, configure Codex roles, set up a new persona, or manage agent role definitions."
 ---
 
 # Role Creator

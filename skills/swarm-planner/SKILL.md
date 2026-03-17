@@ -1,8 +1,6 @@
 ---
 name: swarm-planner
-description: >
-  [EXPLICIT INVOCATION ONLY] Creates dependency-aware implementation plans optimized for parallel
-  multi-agent execution.
+description: "Create dependency-aware implementation plans optimized for parallel multi-agent execution. Explores the codebase, fetches current library docs via Context7, clarifies requirements through user input, and produces plans with explicit task dependency graphs and parallel execution wave tables. Use when planning work for multiple parallel agents, breaking down implementations into dependency-mapped tasks, or preparing plans for /parallel-task or /super-swarm-spark execution."
 metadata:
   invocation: explicit-only
 ---
@@ -76,11 +74,11 @@ T7: [depends_on: [T6]] Write integration tests
 
 Tasks with empty/satisfied dependencies can run in parallel (T1, T2 above).
 
-### 4. Save Plan
+### 5. Save Plan
 
 Save to `<topic>-plan.md` in the CWD.
 
-### 5. Subagent Review
+### 6. Subagent Review
 
 After saving, spawn a subagent to review the plan:
 
