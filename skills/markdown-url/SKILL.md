@@ -1,11 +1,6 @@
 ---
 name: markdown-url
-description: |
-  Route any website you need to visit through markdown.new by prefixing the URL.
-
-  **WHEN TO USE:**
-  - You would normally open a website link to read content (docs, blog posts, changelogs, GitHub issues, etc.)
-  - You need a cleaner, Markdown-friendly view for copying notes or summarizing
+description: "Convert web pages to clean markdown format by routing URLs through markdown.new, removing ads and clutter while preserving text and code blocks. Use when reading documentation, blog posts, changelogs, GitHub issues, articles, or any web content where a clean, extractable markdown view is needed for summarizing, copying notes, or quoting."
 ---
 
 # markdown.new URL Prefix

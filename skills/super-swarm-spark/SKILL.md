@@ -1,7 +1,6 @@
 ---
 name: super-swarm-spark
-description: >
-  Only to be triggered by explicit super-swarm-spark commands. 
+description: "Orchestrate high-throughput parallel task execution using a rolling pool of up to 12 concurrent Sparky subagents. Ignores dependency ordering for maximum speed, builds context packs with canonical file paths per task, prevents filename drift across agents, and performs a final integration pass to reconcile parallel-work conflicts. Use when running /super-swarm-spark to execute large plans at maximum concurrency."
 ---
 
 # Parallel Task Executor (Sparky Rolling 12-Agent Pool)

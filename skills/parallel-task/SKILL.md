@@ -1,7 +1,6 @@
 ---
 name: parallel-task
-description: >
-  Only to be triggered by explicit /parallel-task commands. 
+description: "Orchestrate parallel task execution by parsing plan files and delegating work to concurrent subagents using dependency-aware wave scheduling. Launches unblocked tasks in parallel, validates RED-to-GREEN test evidence, and updates plan docs with completion logs. Use when running /parallel-task to execute implementation plans with TDD-driven parallel subagents."
 ---
 
 # Parallel Task Executor

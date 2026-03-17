@@ -1,7 +1,6 @@
 ---
 name: plan-harder
-description: >
-  Use when user specfically says 'plan harder'. 
+description: "Create detailed, phased implementation plans with sprints and atomic tasks, including codebase research, requirement clarification, gotcha identification, and subagent review. Produces structured plans with demo/verification checklists per sprint and specific file paths per task. Use when the user says 'plan harder' or requests a thorough, multi-phase implementation plan with deep analysis."
 ---
 
 # Planner Agent

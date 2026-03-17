@@ -1,7 +1,6 @@
 ---
 name: parallel
-description: >
-  Only to be triggered by explicit /parallel-task commands. 
+description: "Orchestrate parallel task execution by parsing plan files, inferring dependency graphs from task content, and delegating work to concurrent subagents in waves. Automatically detects task dependencies, validates with TDD RED-to-GREEN evidence, and updates plan docs with completion logs. Use when running /parallel-task to execute plans that lack explicit dependency annotations."
 ---
 
 # Parallel Task Executor
