@@ -104,6 +104,37 @@ npx skills update        # Update all installed skills
 
 ---
 
+### Codex Hook Catalog
+
+The `hooks/` directory contains a catalog of **50 ready-to-install Codex hook bundles**, generated from `davila7/claude-code-templates` and adapted for the Codex event model.
+
+**Categories:**
+
+| Category | Bundles | Examples |
+|---|---|---|
+| `automation` | 18 | Slack/Discord/Telegram notifications, Vercel auto-deploy, dependency checker, change logger |
+| `development-tools` | 8 | Debug window, lint-on-save, smart formatting, file backup, worktree ghostty |
+| `git` | 3 | Conventional commits, prevent direct push, validate branch name |
+| `git-workflow` | 2 | Auto git-add, smart commit |
+| `monitoring` | 2 | Desktop notification on stop, LangSmith tracing |
+| `performance` | 2 | Performance budget guard, performance monitor |
+| `post-tool` | 4 | Format JS/Python files, git-add changes, run tests after changes |
+| `pre-tool` | 4 | Backup before edit, console-log cleaner, notify before bash, update search year |
+| `quality-gates` | 3 | Plan gate, scope guard, TDD gate |
+| `security` | 4 | Dangerous command blocker, file protection, secret scanner, security scanner |
+| `testing` | 1 | Test runner |
+
+**Install a bundle:**
+```bash
+python3 hooks/aitmpl-codex/install-bundle.py hooks/aitmpl-codex/<category>/<bundle> <target-repo>
+```
+
+**Manual install:** Copy the bundle's `hooks.json` into `<repo>/.codex/hooks.json` and its `.codex/hooks/` scripts into `<repo>/.codex/hooks/`, then restart Codex.
+
+See [`hooks/README.md`](hooks/README.md) for full details on compatibility, testing harness, and bundle structure.
+
+---
+
 ### Custom Multi-Agents for Codex
 
 The `agents/` directory contains custom multi-agent configurations for Codex. These TOML-based agent definitions provide specialized roles (architect, frontend, backend, security, etc.) and worker tiers for parallel task execution. Use them with Codex to spin up purpose-built agents tailored to your workflow.
