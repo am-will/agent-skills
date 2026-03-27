@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/performance-performance-monitor-pretooluse-pretooluse-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/performance-performance-monitor-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

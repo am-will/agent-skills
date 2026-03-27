@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/pre-tool-update-search-year-user-prompt-submit-user-prompt-submit-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

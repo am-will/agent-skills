@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-change-logger-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-change-logger-posttooluse-posttooluse-2-1.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-change-logger-posttooluse-posttooluse-3-1.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-change-logger-posttooluse-posttooluse-4-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

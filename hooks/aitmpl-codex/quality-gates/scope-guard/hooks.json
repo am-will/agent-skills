@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/quality-gates-scope-guard-stop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

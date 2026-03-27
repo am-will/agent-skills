@@ -1,0 +1,11 @@
+{
+  "name": "development-tools/command-logger",
+  "sourcePath": "development-tools/command-logger.json",
+  "description": "Log all Claude Code commands to a file for audit and debugging purposes. Simple logging that records tool usage with timestamps.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PreToolUse"
+  ],
+  "hasSupportingFiles": false
+}

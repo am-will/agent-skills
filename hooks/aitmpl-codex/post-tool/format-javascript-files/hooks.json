@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/post-tool-format-javascript-files-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/git-workflow-auto-git-add-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

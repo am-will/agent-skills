@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-slack-detailed-notifications-sessionstart-sessionstart-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-slack-detailed-notifications-stop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

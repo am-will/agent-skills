@@ -1,0 +1,11 @@
+{
+  "name": "automation/dependency-checker",
+  "sourcePath": "automation/dependency-checker.json",
+  "description": "Advanced dependency analysis and security checking. Monitors for outdated packages, security vulnerabilities, and license compatibility.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

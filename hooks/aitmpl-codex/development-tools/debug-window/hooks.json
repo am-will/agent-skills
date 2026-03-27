@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-debug-window-sessionstart-sessionstart-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-debug-window-sessionend-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

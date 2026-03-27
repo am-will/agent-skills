@@ -1,0 +1,13 @@
+{
+  "name": "pre-tool/update-search-year",
+  "sourcePath": "pre-tool/update-search-year.json",
+  "description": "Automatically adds current year to WebSearch queries when no year is specified. This hook intercepts WebSearch tool usage and appends the current year to queries that don't already contain a year, ensuring search results are current and relevant.",
+  "compatibility": "adapted",
+  "notes": [
+    "PreToolUse/WebSearch was rewritten as a UserPromptSubmit approximation."
+  ],
+  "events": [
+    "UserPromptSubmit"
+  ],
+  "hasSupportingFiles": false
+}

@@ -1,0 +1,11 @@
+{
+  "name": "development-tools/smart-formatting",
+  "sourcePath": "development-tools/smart-formatting.json",
+  "description": "Smart code formatting based on file type. Automatically formats code using Prettier, Black, gofmt, rustfmt, and other language-specific formatters.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

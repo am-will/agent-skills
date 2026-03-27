@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-nextjs-code-quality-enforcer-posttooluse-posttooluse-1-1.sh",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}

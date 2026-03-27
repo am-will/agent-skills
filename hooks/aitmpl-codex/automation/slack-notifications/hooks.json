@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-slack-notifications-stop-stop-1-1.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-slack-notifications-subagentstop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-error-notifications-pretooluse-pretooluse-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-error-notifications-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-error-notifications-notification-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

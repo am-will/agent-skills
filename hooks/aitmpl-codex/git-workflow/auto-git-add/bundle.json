@@ -1,0 +1,11 @@
+{
+  "name": "git-workflow/auto-git-add",
+  "sourcePath": "git-workflow/auto-git-add.json",
+  "description": "Automatically stage modified files with git add after editing. Helps maintain a clean git workflow by staging changes as they're made.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

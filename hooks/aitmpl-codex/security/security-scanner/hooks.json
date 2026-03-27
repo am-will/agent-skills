@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/security-security-scanner-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

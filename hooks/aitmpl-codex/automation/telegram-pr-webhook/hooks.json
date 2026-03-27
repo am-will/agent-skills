@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-pr-webhook-posttooluse-posttooluse-1-1.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

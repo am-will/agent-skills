@@ -1,0 +1,12 @@
+{
+  "name": "automation/deployment-health-monitor",
+  "sourcePath": "automation/deployment-health-monitor.json",
+  "description": "Monitor deployment status, error rates, and performance metrics, sending notifications for failed deployments or performance degradation. Tracks Vercel deployment health, monitors build success/failure rates, and provides alerts for deployment issues. Setup: Export 'export VERCEL_TOKEN=your_token' and 'export VERCEL_PROJECT_ID=your_project_id' (get from vercel.com/account/tokens and Vercel dashboard).",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse",
+    "SessionStart"
+  ],
+  "hasSupportingFiles": false
+}

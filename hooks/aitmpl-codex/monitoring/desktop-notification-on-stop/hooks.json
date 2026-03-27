@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/monitoring-desktop-notification-on-stop-stop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

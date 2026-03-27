@@ -1,0 +1,11 @@
+{
+  "name": "testing/test-runner",
+  "sourcePath": "testing/test-runner.json",
+  "description": "Automatically run relevant tests after code changes. Detects test files and runs appropriate test commands based on file extensions and project structure.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

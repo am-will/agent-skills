@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-change-tracker-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-change-tracker-posttooluse-posttooluse-2-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

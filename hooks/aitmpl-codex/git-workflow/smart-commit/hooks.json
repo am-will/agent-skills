@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/git-workflow-smart-commit-posttooluse-posttooluse-1-1.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/git-workflow-smart-commit-posttooluse-posttooluse-2-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

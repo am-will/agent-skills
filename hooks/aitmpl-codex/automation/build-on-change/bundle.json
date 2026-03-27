@@ -1,0 +1,11 @@
+{
+  "name": "automation/build-on-change",
+  "sourcePath": "automation/build-on-change.json",
+  "description": "Automatically trigger build processes when source files change. Detects common build tools and runs appropriate build commands.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

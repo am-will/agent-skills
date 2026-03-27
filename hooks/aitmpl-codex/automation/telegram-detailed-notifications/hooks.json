@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-detailed-notifications-sessionstart-sessionstart-1-1.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/automation-telegram-detailed-notifications-stop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

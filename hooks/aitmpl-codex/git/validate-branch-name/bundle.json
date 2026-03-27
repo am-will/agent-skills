@@ -1,0 +1,11 @@
+{
+  "name": "git/validate-branch-name",
+  "sourcePath": "git/validate-branch-name.json",
+  "description": "Validate Git Flow branch naming conventions before checkout. Ensures branches follow the pattern: feature/*, release/v*.*.*, hotfix/*. Prevents creation of branches that don't follow Git Flow standards.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PreToolUse"
+  ],
+  "hasSupportingFiles": false
+}

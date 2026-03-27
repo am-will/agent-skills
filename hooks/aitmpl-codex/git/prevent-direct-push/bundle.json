@@ -1,0 +1,11 @@
+{
+  "name": "git/prevent-direct-push",
+  "sourcePath": "git/prevent-direct-push.json",
+  "description": "Prevent direct pushes to protected branches (main, develop). Blocks git push commands targeting main or develop branches to enforce Git Flow workflow. Requires using feature/release/hotfix branches and pull requests instead of direct commits to protected branches.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PreToolUse"
+  ],
+  "hasSupportingFiles": false
+}

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/monitoring-langsmith-tracing-stop-stop-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

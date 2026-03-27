@@ -1,0 +1,11 @@
+{
+  "name": "development-tools/nextjs-code-quality-enforcer",
+  "sourcePath": "development-tools/nextjs-code-quality-enforcer.json",
+  "description": "Enforce Next.js best practices, proper file structure, component patterns, and TypeScript usage with automated code reviews and suggestions. Validates Next.js App Router conventions, Server/Client component patterns, proper imports, and TypeScript usage. Provides real-time feedback on code quality and adherence to Next.js best practices.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

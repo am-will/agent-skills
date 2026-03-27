@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-command-logger-pretooluse-pretooluse-1-1.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

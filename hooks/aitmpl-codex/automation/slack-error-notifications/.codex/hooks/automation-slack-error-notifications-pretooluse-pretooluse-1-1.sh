@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+bundle_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+command=$(cat <<'__CODEx_HOOK_COMMAND__'
+if [[ -n "$SLACK_WEBHOOK_URL" ]]; then echo "$(date +%s)" > ~/.codex/bash_start.tmp; fi
+__CODEx_HOOK_COMMAND__
+)
+
+cd "$bundle_root"
+exec "$bundle_root/.codex/hooks/_shared/run-with-hook-env.sh" -- bash -lc "$command"

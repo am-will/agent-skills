@@ -1,0 +1,11 @@
+{
+  "name": "git-workflow/smart-commit",
+  "sourcePath": "git-workflow/smart-commit.json",
+  "description": "Intelligent git commit creation with automatic message generation and validation. Creates meaningful commits based on file changes.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

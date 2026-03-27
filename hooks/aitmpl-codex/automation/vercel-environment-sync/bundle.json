@@ -1,0 +1,12 @@
+{
+  "name": "automation/vercel-environment-sync",
+  "sourcePath": "automation/vercel-environment-sync.json",
+  "description": "Synchronize environment variables between local development and Vercel deployments, ensuring consistency across all environments. Detects changes to .env files and provides options to sync with Vercel, validates environment variable format, and ensures required variables are present. Setup: Export 'export VERCEL_TOKEN=your_token' (get from vercel.com/account/tokens).",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse",
+    "SessionStart"
+  ],
+  "hasSupportingFiles": false
+}

@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-worktree-ghostty-worktreecreate-sessionstart-1-1.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.codex/hooks/development-tools-worktree-ghostty-worktreeremove-stop-1-1.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

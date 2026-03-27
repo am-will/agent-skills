@@ -1,0 +1,11 @@
+{
+  "name": "automation/telegram-pr-webhook",
+  "sourcePath": "automation/telegram-pr-webhook.json",
+  "description": "Send Telegram notification when a new PR is created via gh pr create. Includes PR URL and Vercel preview URL. Requires TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID environment variables. Optionally set VERCEL_PROJECT_NAME and VERCEL_TEAM_SLUG to construct the Vercel preview URL automatically.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

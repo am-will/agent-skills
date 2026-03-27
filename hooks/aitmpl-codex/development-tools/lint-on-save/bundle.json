@@ -1,0 +1,11 @@
+{
+  "name": "development-tools/lint-on-save",
+  "sourcePath": "development-tools/lint-on-save.json",
+  "description": "Automatically run linting tools after file modifications. Supports ESLint for JavaScript/TypeScript, Pylint for Python, and RuboCop for Ruby.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}

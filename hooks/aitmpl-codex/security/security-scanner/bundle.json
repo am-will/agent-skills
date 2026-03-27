@@ -1,0 +1,11 @@
+{
+  "name": "security/security-scanner",
+  "sourcePath": "security/security-scanner.json",
+  "description": "Scan code for security vulnerabilities and secrets after modifications. Uses multiple security tools to detect potential issues.",
+  "compatibility": "direct",
+  "notes": [],
+  "events": [
+    "PostToolUse"
+  ],
+  "hasSupportingFiles": false
+}
