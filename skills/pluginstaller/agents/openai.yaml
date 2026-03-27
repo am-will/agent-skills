@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pluginstaller"
+  short_description: "Add a Codex plugin from a GitHub repo to a Codex marketplace"
+  default_prompt: "Use $pluginstaller to add the plugin from the provided GitHub repo to the chosen repo or personal Codex marketplace using the documented plugin layout and marketplace metadata."

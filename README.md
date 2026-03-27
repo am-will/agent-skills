@@ -20,8 +20,8 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
 
 ### Documentation Access
 
-- `context7`:
-  Fetch up-to-date library documentation via Context7 API.
+- `ctx7old`:
+  Fetch up-to-date library documentation via Context7 CLI.
 - `openai-docs-skill`:
   Query OpenAI developer docs via the OpenAI Docs MCP server using CLI.
 - `markdown-url`:
@@ -37,6 +37,15 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
   Responsive UI standards (imported from Anthropic).
 - `vercel-react-best-practices`:
   React/Next.js performance guidance (imported from Vercel).
+
+### Codex Tooling
+
+- `create-hook`:
+  Create or update Codex hooks for global or project scope. Guides users through scope, hook type, and behavior, then writes hook config and scripts.
+- `pluginstaller`:
+  Install a Codex plugin from a GitHub repo into a repo or personal marketplace. Handles plugin discovery, validation, and marketplace registration.
+- `role-creator`:
+  Create and update custom Codex agents as standalone TOML files. Collects required inputs and writes agent definitions to global or project scope.
 
 ### Browser Automation
 
@@ -87,7 +96,7 @@ npx skills update        # Update all installed skills
 
 **Note on Browser Tools**: The repo includes two browser automation tools (`gemini-computer-use` and `agent-browser`). You don't need to install both - choose the one that best fits your workflow. I recommend agent-browser for speed and simplicity.
 
-**Note on Context7**: This skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/context7/.env.example` and the Authentication section in `skills/context7/SKILL.md`.
+**Note on Context7**: The `ctx7old` skill requires a Context7 API key in `CONTEXT7_API_KEY`. See `skills/ctx7old/.env.example` for setup.
 
 **Note on Gemini Computer Use Skill**: This skill requires a GEMINI_API_KEY. Ask Codex to help you set it up.
 

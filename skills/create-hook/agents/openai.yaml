@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Hook"
+  short_description: "Create or update Codex hooks for global or project scope"
+  default_prompt: "Use $create-hook to add or update Codex hooks. If the scope is unclear, ask whether it should be global or project-scoped. If the hook type is unclear, ask which hook event they want. Then create the hook config, scripts, and any needed feature-flag config."

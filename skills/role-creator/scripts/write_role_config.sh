@@ -4,11 +4,12 @@ set -euo pipefail
 usage() {
   cat <<'USAGE'
 Usage:
-  write_role_config.sh --output PATH --role-name NAME --model MODEL --reasoning EFFORT [options]
+  write_role_config.sh --output PATH --role-name NAME --description DESC --model MODEL --reasoning EFFORT [options]
 
 Required:
   --output PATH
   --role-name NAME
+  --description DESC
   --model MODEL
   --reasoning none|minimal|low|medium|high|xhigh
 
@@ -17,6 +18,7 @@ Developer instructions (choose one):
   --developer-instructions-file PATH
 
 Optional:
+  --nickname-candidates "Atlas,Delta,Echo"
   --sandbox-mode read-only|workspace-write|danger-full-access
   --network-access true|false                (for workspace-write)
   --writable-roots path1,path2               (for workspace-write)
@@ -30,13 +32,16 @@ USAGE
 
 output_path=""
 role_name=""
+role_description=""
 model=""
 reasoning=""
 developer_instructions=""
 developer_instructions_file=""
+nickname_candidates_csv=""
 sandbox_mode=""
 network_access=""
 writable_roots_csv=""
+writable_roots_json="[]"
 web_search=""
 mcp_clear="false"
 mcp_enable_csv=""
@@ -48,6 +53,8 @@ while [[ $# -gt 0 ]]; do
       output_path="$2"; shift 2 ;;
     --role-name)
       role_name="$2"; shift 2 ;;
+    --description)
+      role_description="$2"; shift 2 ;;
     --model)
       model="$2"; shift 2 ;;
     --reasoning)
@@ -56,6 +63,8 @@ while [[ $# -gt 0 ]]; do
       developer_instructions="$2"; shift 2 ;;
     --developer-instructions-file)
       developer_instructions_file="$2"; shift 2 ;;
+    --nickname-candidates)
+      nickname_candidates_csv="$2"; shift 2 ;;
     --sandbox-mode)
       sandbox_mode="$2"; shift 2 ;;
     --network-access)
@@ -79,7 +88,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ -z "$output_path" || -z "$role_name" || -z "$model" || -z "$reasoning" ]]; then
+if [[ -z "$output_path" || -z "$role_name" || -z "$role_description" || -z "$model" || -z "$reasoning" ]]; then
   echo "Missing required arguments." >&2
   usage
   exit 1
@@ -141,7 +150,14 @@ fi
 
 mkdir -p "$(dirname "$output_path")"
 
-expr='.model = $MODEL |
+nickname_json="[]"
+if [[ -n "$nickname_candidates_csv" ]]; then
+  nickname_json="$(printf '%s' "$nickname_candidates_csv" | jq -Rc 'split(",") | map(gsub("^\\s+|\\s+$"; "")) | map(select(length > 0)) | unique')"
+fi
+
+expr='.name = $ROLE_NAME |
+      .description = $DESCRIPTION |
+      .model = $MODEL |
       .model_reasoning_effort = $REASONING |
       .developer_instructions = $DEVELOPER_INSTRUCTIONS'
 
@@ -156,8 +172,6 @@ fi
 if [[ -n "$writable_roots_csv" ]]; then
   writable_roots_json="$(printf '%s' "$writable_roots_csv" | jq -Rc 'split(",") | map(gsub("^\\s+|\\s+$"; "")) | map(select(length > 0))')"
   expr+=$' | .sandbox_workspace_write.writable_roots = ($WRITABLE_ROOTS_JSON | fromjson)'
-else
-  writable_roots_json='[]'
 fi
 
 if [[ -n "$web_search" ]]; then
@@ -188,7 +202,13 @@ if [[ -n "$mcp_disable_csv" ]]; then
   done
 fi
 
+if [[ -n "$nickname_candidates_csv" ]]; then
+  expr+=$' | .nickname_candidates = ($NICKNAME_JSON | fromjson)'
+fi
+
 tomlq -n -t \
+  --arg ROLE_NAME "$role_name" \
+  --arg DESCRIPTION "$role_description" \
   --arg MODEL "$model" \
   --arg REASONING "$reasoning" \
   --arg DEVELOPER_INSTRUCTIONS "$developer_instructions" \
@@ -196,6 +216,7 @@ tomlq -n -t \
   --arg NETWORK_ACCESS "$network_access" \
   --arg WRITABLE_ROOTS_JSON "$writable_roots_json" \
   --arg WEB_SEARCH "$web_search" \
+  --arg NICKNAME_JSON "$nickname_json" \
   "$expr" > "$output_path"
 
 echo "Wrote role config to $output_path"

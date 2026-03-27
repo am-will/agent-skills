@@ -1,7 +1,7 @@
 ---
 name: context7
 description: |
-  Fetch up-to-date library documentation via Context7 API. Use PROACTIVELY when:
+  Fetch up-to-date library documentation via Context7 CLI. Use PROACTIVELY when:
   (1) Working with ANY external library (React, Next.js, Supabase, etc.)
   (2) User asks about library APIs, patterns, or best practices
   (3) Implementing features that rely on third-party packages
