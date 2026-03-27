@@ -30,3 +30,12 @@ Compatibility:
 - Some bundles are `direct` Codex matches.
 - Others are `adapted` where Claude Code had an event Codex does not currently expose.
 - Network/service hooks like Slack, Discord, Telegram, Vercel, and LangSmith are skipped by the harness and may need manual credentials.
+
+## Create Custom Hooks
+
+Need a hook that isn't in the catalog? The [`create-hook`](../skills/create-hook/SKILL.md) skill guides you through building custom Codex hooks from scratch — just describe the behavior you want and it handles scope, event type, config, and scripts.
+
+Install it with:
+```bash
+npx skills add am-will/codex-skills --skill create-hook -g
+```
